@@ -7,6 +7,7 @@ router.post('/test', (req, res) => {
 module.exports = router;
 
 
+// TEST FETCH REQUEST
 // fetch('/api/test', {
 //   method: "POST",
 //   headers: {
