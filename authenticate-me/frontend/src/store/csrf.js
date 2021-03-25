@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'; // extracts XSRF-TOKEN from cookie value
 
-export csrfFetch = async (url, options = {}) => {
+export const csrfFetch = async (url, options = {}) => {
   // set options.method to 'GET' if there is no method
   options.method = options.method || 'GET';
   // set options.headers to an empty object if there is no headers
@@ -23,4 +23,8 @@ export csrfFetch = async (url, options = {}) => {
   // if the response status code is under 400, then return the response to the
   // next promise chain
   return res;
+}
+
+export const restoreCSRF = () => {
+  return csrfFetch('api/csrf/restore');
 }
