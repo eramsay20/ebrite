@@ -6,6 +6,19 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
+// Restore session for user
+router.get('/', restoreUser, (req, res) => {
+  const { user } = req; // pull user out of req (set by restoreUser mw)
+
+  if(user) {
+    return res.json({ user: user.toSafeObject() }); // return user if exists
+  } else {
+    return res.json({}) // else return an empty obj
+  }
+})
+
+
+
 // Log In -- TESTED, OK
 router.post('/', asyncHandler(async (req, res, next) => {
   const { credential, password } = req.body;
