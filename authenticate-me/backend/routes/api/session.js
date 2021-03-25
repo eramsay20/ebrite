@@ -25,6 +25,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
   return res.json({ user });
 }))
 
+// Log out -- TESTED, OK
 router.delete('/', (_req, res) => { // _req indicates it should not be changed/used here
   res.clearCookie('token') // remove token from session
   return res.json({ message: 'success' });
@@ -32,11 +33,3 @@ router.delete('/', (_req, res) => { // _req indicates it should not be changed/u
 
 
 module.exports = router;
-
-// fetch('/api/session', {
-//   method: 'DELETE',
-//   headers: {
-//     "Content-Type": "application/json",
-//     "XSRF-TOKEN": `Pz6KrMgG-ndYUhQiR7QYB6ZIfOrllcGNhhZo`
-//   }
-// }).then(res => res.json()).then(data => console.log(data));
