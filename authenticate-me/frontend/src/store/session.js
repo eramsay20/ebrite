@@ -4,7 +4,9 @@ import { csrfFetch } from '../store/csrf';
 const SET_USER = 'authenticate/SET_USER';
 const REMOVE_USER = 'authenticate/REMOVE_USER';
 
-// Action Creators
+
+
+// Action Creators -------------
 const setSessionUser = (user) => ({
   type: SET_USER,
   payload: user,
@@ -14,7 +16,9 @@ const removeSessionUser = () => ({
   type: REMOVE_USER,
 })
 
-// Thunks
+
+
+// Thunks -------------------
 export const login = (loginInfo) => async dispatch => {
   const { credential, password } = loginInfo;
   const response = await csrfFetch(`/api/session`, {
@@ -28,7 +32,7 @@ export const login = (loginInfo) => async dispatch => {
   if(response.ok){
     const user = await response.json();
     dispatch(setSessionUser(user));
-    return user;
+    return response;
   }
 }
 
@@ -38,10 +42,11 @@ export const restoreUser = () => async dispatch => {
   if(response.ok){
     const data = await response.json();
     dispatch(setSessionUser(data.user))
-    return data.user
+    return response
   }
 }
 
+// Signup new user
 export const signup = (signupInfo) => async dispatch => {
   const { username, email, password } = signupInfo;
   const response = await csrfFetch(`/api/users`, {
@@ -56,14 +61,25 @@ export const signup = (signupInfo) => async dispatch => {
   if(response.ok){
     const data = await response.json()
     dispatch(setSessionUser(data.user))
-    return data.user;
+    return response;
+  }
+}
+
+// Log out user
+export const logout = () => async dispatch => {
+  const response = await csrfFetch('/api/session', {
+    method: 'DELETE'
+  })
+  if(response.ok){
+    dispatch(removeSessionUser())
+    return response
   }
 }
 
 
 
 
-// Reducers
+// Reducers -----------------
 const initialState = { user: null }
 
 const sessionReducer = (state = initialState, action) => {
@@ -87,15 +103,3 @@ const sessionReducer = (state = initialState, action) => {
 }
 
 export default sessionReducer;
-
-
-// Session slice of state:
-// {
-//   user: {
-//     id,
-//     email,
-//     username,
-//     createdAt,
-//     updatedAt
-//   }
-// }
