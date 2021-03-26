@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = function(models) {
-    // associations can be defined here
+    // 1:Many, User <> Registrations, one user can have many registration entries
+    User.hasMany(models.Registration, { foreignKey: 'userId'});
   };
 
   // INSTANCE METHODS --------

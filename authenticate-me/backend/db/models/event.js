@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     ticketPrice: {
-        type: Sequelize.DECIMAL(10, 2),
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
-      },
+    },
     categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,7 +32,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Event.associate = function(models) {
-    // associations can be defined here
+    // 1:Many, Category <> Events, one category type can be set on many event entries
+    Event.belongsTo(models.Category, { foreignKey: 'categoryId'});
+
+    // 1:Many, Event <> Registrations, one event has many registration entries
+    Event.hasMany(models.Registration, { foreignKey: 'eventId'});
   };
   return Event;
 };
