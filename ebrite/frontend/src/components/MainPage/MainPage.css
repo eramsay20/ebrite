@@ -1,0 +1,21 @@
+:root {
+  --eBriteText: #39364F;
+  --eBriteBackground: #FFFFFF;
+  --eBriteShadow: #F6F7FD;
+
+  --eBriteOrange: #F05538;
+  --eBriteDarkOrange: #D1410C;
+  --eBriteBlue: #3D64FF;
+  --eBritePurple: #1E0A3C;
+}
+
+body {
+  background-color: var(--eBriteBackground);
+  color: var(--eBriteText);
+  text-align: center;
+
+}
+
+a {
+  color: var(--eBriteDarkOrange);
+}
