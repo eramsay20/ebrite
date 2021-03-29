@@ -8,6 +8,12 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
+// Load user profile page
+// router.get('/profile', requireAuth, asyncHandler(req, res) => {
+//   const { user } = req;
+
+// });
+
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
@@ -28,6 +34,7 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+// Sign up for new account
 router.post('', validateSignup, asyncHandler( async(req, res) => {
   const { email, password, username } = req.body;
   const user = await User.signup({email, username, password});
