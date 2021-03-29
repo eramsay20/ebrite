@@ -1,10 +1,16 @@
 const router = require('express').Router()
 const asyncHandler = require('express-async-handler');
 
-const { Event, Registration } = require('../../db/models');
+const { Event, Registration, Category } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 /* GET */
+
+// Load all events
+router.get('/', asyncHandler( async(req, res) => {
+  const events = await Event.findAll({ include: Category });
+  res.json({ events })
+}))
 
 // Load event page; pass back related event info
 router.get('/:id', asyncHandler( async(req, res) => {

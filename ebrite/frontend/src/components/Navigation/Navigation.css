@@ -1,10 +1,13 @@
 /* Site Color Swatches*/
 :root {
-  --darkpink: #bf0f70;
-  --pink: #d91193;
-  --slate: #8d90b6;
-  --teal: #224e55;
-  --orange: #f2ae72;
+  --eBriteText: #39364F;
+  --eBriteBackground: #FFFFFF;
+  --eBriteShadow: #F6F7FD;
+
+  --eBriteOrange: #F05538;
+  --eBriteDarkOrange: #D1410C;
+  --eBriteBlue: #3D64FF;
+  --eBritePurple: #1E0A3C;
 }
 
 /* .page-wrap {
