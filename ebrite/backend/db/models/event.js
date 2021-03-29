@@ -37,6 +37,15 @@ module.exports = (sequelize, DataTypes) => {
 
     // 1:Many, Event <> Registrations, one event has many registration entries
     Event.hasMany(models.Registration, { foreignKey: 'eventId'});
+
+    // Many:Many Event <> User; many users can 'favorite' many events; each favorite adds a row to the favorites table
+    const columnMapping = {
+      through: 'Favorite', // relationship exists 'through' the join table, Favorite
+      otherKey: 'userId', // key on Event table to reference the join table
+      foreignKey: 'eventId', // key on User table to reference the join table
+    };
+
+    Event.belongsToMany(models.User, columnMapping);
   };
   return Event;
 };
