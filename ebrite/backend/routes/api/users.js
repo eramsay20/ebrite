@@ -3,16 +3,10 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Favorite } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
-
-// Load user profile page
-// router.get('/profile', requireAuth, asyncHandler(req, res) => {
-//   const { user } = req;
-
-// });
 
 const validateSignup = [
   check('email')
@@ -34,6 +28,17 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+/* GET */
+
+// Load user profile page; require signed in user to load
+router.get('/profile', requireAuth, asyncHandler( async(req, res) => {
+  const { user } = req;
+  res.json({user})
+}));
+
+
+/* POST */
+
 // Sign up for new account
 router.post('', validateSignup, asyncHandler( async(req, res) => {
   const { email, password, username } = req.body;
@@ -42,6 +47,31 @@ router.post('', validateSignup, asyncHandler( async(req, res) => {
   await setTokenCookie(res, user);
   return res.json({ user });
 }))
+
+    // // Add Favorite to User Profile *** REVISIT AFTER EVENT CARD COMPONENT HAS BEEN CREATED
+    // router.post('/favorite', requireAuth, asyncHandler( async(req, res) => {
+    //   // TODO: grab event id from click actions, revisit after EventCard component has been created
+
+    //   const userId = req.user.id
+    //   await Favorite.create({eventId, userId});
+    //   return res.json({ message: 'success' });
+    // }))
+
+    // // Add Favorite to User Profile *** REVISIT AFTER EVENT CARD COMPONENT HAS BEEN CREATED
+    // router.delete('/favorite', requireAuth, asyncHandler( async(req, res) => {
+
+    //   // TODO: grab event id from click actions, revisit after EventCard component has been created
+    //   const userId = req.user.id
+
+    //   const favorite = await Favorite.findOne({
+    //     where: {
+    //       eventId: eventId,
+    //       userId: userId,
+    //     }
+    //   })
+    //   await Favorite.destroy();
+    //   return res.json({ message: 'success' });
+    // }))
 
 
 module.exports = router;
