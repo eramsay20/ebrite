@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     eventId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
   }, {});
   Favorite.associate = function(models) {
 
