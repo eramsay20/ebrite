@@ -13,13 +13,12 @@
 
 body {
   background-color: var(--eBriteBackground);
-
   font-family: 'Josefin Sans', sans-serif;
   color: var(--eBriteText);
-
   text-align: center;
 }
 
 a {
   color: var(--eBriteDarkOrange);
+  margin-left: 10px;
 }

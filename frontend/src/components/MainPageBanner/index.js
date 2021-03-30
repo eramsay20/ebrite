@@ -1,11 +1,11 @@
 import React from 'react';
 
-function WelcomeBanner(){
+function MainPageBanner(){
   return (
-      <div className='welcome-banner'>
+      <div className='main-page-banner'>
         <img src='https://github.com/eramsay20/eBrite/raw/master/wiki-resources/eBrite-banner-1.png?raw=true'></img>
       </div>
   );
 }
 
-export default WelcomeBanner;
+export default MainPageBanner;
