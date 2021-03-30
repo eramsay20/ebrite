@@ -22,7 +22,7 @@ body {
 a {
   color: var(--dark-orange);
   text-decoration: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -111,4 +111,10 @@ button:hover {
   background-color: var(--orange);
   border: 2px solid white;
   color: white;
+}
+
+/* OTHER STYLINGS */
+
+.nav-logo {
+  width: 150px;
 }

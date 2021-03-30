@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
-// import './Navigation.css';
+
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -25,7 +25,9 @@ function Navigation({ isLoaded }){
 
   return (
     <>
-        <NavLink exact className='nav__link' to="/">Home</NavLink>
+        <NavLink exact className='nav__link' to="/">
+          <img className="nav-logo" src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"></img>
+        </NavLink>
         {isLoaded && sessionLinks}
     </>
   );
