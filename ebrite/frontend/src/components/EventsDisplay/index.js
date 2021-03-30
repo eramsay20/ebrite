@@ -14,25 +14,26 @@ function EventsDisplay(){
   }, [])
 
   const events = useSelector(state => state.events.eventsList);
-  console.log('>>>>>>>EVENTS: ', events)
+  {events[0] && events[0].Category && console.log('>>event[0] ', events[0].Category.category)}
 
   const [category, setCategory] = useState('')
   // todo: pull in category info somehow from state or db
 
-
-  // todo: update categoryLinks to render NavLinks for every category
-    const categoryLinks = (
-      <>
-        <NavLink className='nav__link' style={{ marginLeft: '.5rem' }} to="/category/:category">CATEGORY NAMES 1 HERE</NavLink>
-        <NavLink className='nav__link' style={{ marginLeft: '.5rem' }} to="/category/:category">CATEGORY NAMES 2 HERE</NavLink>
-      </>
-    );
+  const categoryNames = events.map(e => e.Category.category)
+  const categories = [];
+  categoryNames.forEach(category => {
+    if(!categories.includes(category)){
+      categories.push(category);
+    }
+  })
 
   return (
     <>
       <nav className="full-width-nav">
         <div className="nav__link-container">
-          {categoryLinks}
+          {categories && categories.map(category => (
+            <NavLink className='nav__link' style={{ marginLeft: '.5rem' }} to={`/category/${category}`}>{category}</NavLink>
+            ))}
         </div>
       </nav>
       <div>

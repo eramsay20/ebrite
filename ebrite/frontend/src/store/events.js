@@ -43,7 +43,6 @@ const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
       const allEvents = {};
-      console.log(action)
       action.events.forEach(event => {
         allEvents[event.id] = event;
       });
