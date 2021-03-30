@@ -9,6 +9,8 @@ import MainPage from "./components/MainPage";
 import EventPage from "./components/EventPage";
 import Footer from "./components/Footer";
 
+import './index.css';
+
 import * as sessionActions from './store/session';
 
 function App() {
@@ -23,24 +25,38 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+        <div className={`grid-container`}>
+          <div className={`header flex-container`}>
+            <Navigation isLoaded={isLoaded} />
+          </div>
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <MainPage />
+          <Route exact path='/'>
+            <div className='body'>
+              <MainPage />
+            </div>
           </Route>
-          <Route path="/events/:eventId">
-            <EventPage />
+          <Route path='/events/:eventId'>
+            <div className='body'>
+              <EventPage />
+            </div>
           </Route>
-          <Route path="/login">
-            <LoginFormPage />
+          <Route path='/login'>
+            <div className='body'>
+              <LoginFormPage />
+            </div>
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route path='/signup'>
+            <div className='body'>
+              <SignupFormPage />
+            </div>
           </Route>
         </Switch>
       )}
-      <Footer />
+            <div className={`footer flex-container`}>
+              <Footer />
+            </div>
+          </div>
     </>
   );
 }

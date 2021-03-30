@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
-import './LoginForm.css';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -31,30 +30,34 @@ function LoginFormPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      <div className={`form-container flex-container`}>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
+          </ul>
+          <label>
+            Username or Email
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </>
   );
 }
 

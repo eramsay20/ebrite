@@ -24,12 +24,10 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <nav className="full-width-nav">
-      <div className="nav__link-container">
-        <NavLink exact className='nav__link' to="/" style={{ marginLeft: '.5rem' }}>Home</NavLink>
+    <>
+        <NavLink exact className='nav__link' to="/">Home</NavLink>
         {isLoaded && sessionLinks}
-      </div>
-    </nav>
+    </>
   );
 }
 
