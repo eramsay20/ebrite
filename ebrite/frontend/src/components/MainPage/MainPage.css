@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&display=swap');
 
 :root {
   --eBriteText: #39364F;
@@ -14,7 +14,7 @@
 body {
   background-color: var(--eBriteBackground);
 
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: var(--eBriteText);
 
   text-align: center;
