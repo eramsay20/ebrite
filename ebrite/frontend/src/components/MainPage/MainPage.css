@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
 :root {
   --eBriteText: #39364F;
   --eBriteBackground: #FFFFFF;
@@ -11,9 +13,11 @@
 
 body {
   background-color: var(--eBriteBackground);
-  color: var(--eBriteText);
-  text-align: center;
 
+  font-family: 'Raleway', sans-serif;
+  color: var(--eBriteText);
+
+  text-align: center;
 }
 
 a {
