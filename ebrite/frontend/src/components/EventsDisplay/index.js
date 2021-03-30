@@ -14,7 +14,6 @@ function EventsDisplay(){
   }, [])
 
   const events = useSelector(state => state.events.eventsList);
-  {events[0] && events[0].Category && console.log('>>event[0] ', events[0].Category.category)}
 
   const [category, setCategory] = useState('')
   // todo: pull in category info somehow from state or db
