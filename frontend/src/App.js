@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-        <div className={`grid-container`}>
+        <div className={`app-grid-container`}>
           <div className={`header flex-container`}>
             <Navigation isLoaded={isLoaded} />
           </div>

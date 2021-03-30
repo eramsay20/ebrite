@@ -22,9 +22,10 @@ function EventPage(){
 
   return (
     <>
-      <h1>TEST</h1>
-      <EventPageHeader event={event} />
-      <EventPageBody event={event}/>
+      <div className='event-grid-container'>
+        <EventPageHeader event={event} />
+        <EventPageBody event={event}/>
+      </div>
     </>
   );
 }

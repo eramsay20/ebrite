@@ -19,7 +19,7 @@ body {
   margin: 0 auto;
 }
 
-a {
+.nav-link {
   color: var(--dark-orange);
   text-decoration: none;
   padding: 10px;
@@ -28,12 +28,21 @@ a {
 
 /* CONTAINERS */
 
-.grid-container {
+.app-grid-container {
   display: grid;
   grid-template: 1fr 10fr 1fr / 1fr;
-  /* gap: 5px; */
   height: 100vh;
   width: 100vw;
+}
+
+.event-grid-container {
+  display: grid;
+  grid-template: 3fr 6fr / 3fr 2fr;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas:
+   'image details',
+   'sum sum';
 }
 
 .flex-container {
@@ -59,6 +68,30 @@ a {
 .footer{
   border-top: 10px solid var(--orange);
   margin: 0px;
+}
+
+.event-image{
+  grid-area: 'image';
+  /* background-color: var(--orange); */
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.event-image > img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.event-details{
+  /* background-color: var(--purple); */
+  grid-area: 'details';
+}
+
+.event-summary{
+  /* background-color: green; */
+  grid-area: 'sum';
 }
 
 /* FORM, INPUT AND LINK STYLINGS */
@@ -97,7 +130,7 @@ button {
   margin-top: 20px;
 }
 
-a:hover {
+.nav-link:hover {
   background-color: var(--orange);
   border: 2px solid white;
   color: white;
@@ -114,7 +147,3 @@ button:hover {
 }
 
 /* OTHER STYLINGS */
-
-.nav-logo {
-  width: 150px;
-}

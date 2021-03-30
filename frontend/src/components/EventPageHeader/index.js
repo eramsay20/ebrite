@@ -3,14 +3,14 @@ import React from 'react';
 function EventPageHeader({ event }){
   return (
     <>
-      <div className='event-page-image'>
+      <div className={`event-image`}>
         <img src={event.image}></img>
       </div>
-      <div className='event-page-summary'>
-        <h1>{event.title}</h1>
-        <h2>{event.host}</h2>
-        <h3>{event.ticketPrice}</h3>
-        <h3>{event.time}</h3>
+      <div className={`event-details`}>
+        <h2>{event.title}</h2>
+        <h4>Host: {event.host}</h4>
+        <h4>Time: {event.time}</h4>
+        <h4>Price: ${event.ticketPrice}</h4>
       </div>
     </>
   );

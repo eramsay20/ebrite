@@ -7,8 +7,8 @@ function Footer(){
   return (
     <nav>
       <div>
-        <a href={GITHUB_PROFILE_PATH} style={{ marginLeft: '.5rem' }}>Github Profile</a>
-        <a href={WIKI_PATH} style={{ marginLeft: '.5rem' }}>e.brite Wiki</a>
+        <a className="nav-link" href={GITHUB_PROFILE_PATH} style={{ marginLeft: '.5rem' }}>Github Profile</a>
+        <a className="nav-link" href={WIKI_PATH} style={{ marginLeft: '.5rem' }}>e.brite Wiki</a>
       </div>
     </nav>
   );
