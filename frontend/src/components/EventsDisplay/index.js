@@ -3,15 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getEvents } from '../../store/events'
 
-import './EventsDisplay.css';
-
 function EventsDisplay(){
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(()=>{
     dispatch(getEvents())
-  }, [])
+  }, [dispatch])
 
   const events = useSelector(state => state.events.eventsList);
 
@@ -26,17 +23,21 @@ function EventsDisplay(){
     }
   })
 
+  // const categoryClick = () => {
+
+  // }
+
   return (
     <>
       <nav className="full-width-nav">
         <div className="nav__link-container">
           {categories && categories.map(category => (
-            <NavLink className='nav__link' style={{ marginLeft: '.5rem' }} to={`/category/${category}`}>{category}</NavLink>
+            <NavLink key={category} className='nav__link' style={{ marginLeft: '.5rem' }} to={`/`}>{category}</NavLink>
             ))}
         </div>
       </nav>
       <div>
-        { events && events.map(event => (<p key={event.id} style={{ marginLeft: '.5rem' }}>{event.title}</p>))}
+        { events && events.map(event => (<NavLink to={`/events/${event.id}`} key={event.id} style={{ marginLeft: '.5rem' }}>{event.title}</NavLink>))}
 
       </div>
     </>
