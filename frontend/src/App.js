@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
+import Navigation from "./components/Navigation";
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
-import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
 import EventPage from "./components/EventPage";
+import Footer from "./components/Footer";
+
 import * as sessionActions from './store/session';
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
