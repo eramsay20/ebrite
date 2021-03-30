@@ -37,8 +37,10 @@ body {
 
 .event-grid-container {
   display: grid;
+  /* background-color: var(--orange); */
   grid-template: 3fr 6fr / 3fr 2fr;
-  height: 100vh;
+  /* gap: 5px; */
+  height: 80vh;
   width: 100vw;
   grid-template-areas:
    'image details',
@@ -70,9 +72,9 @@ body {
   margin: 0px;
 }
 
-.event-image{
+.event-image {
   grid-area: 'image';
-  /* background-color: var(--orange); */
+  background-color: var(--orange);
   object-fit: cover;
   width: 100%;
   max-height: 100%;
@@ -85,13 +87,14 @@ body {
 }
 
 .event-details{
-  /* background-color: var(--purple); */
   grid-area: 'details';
+  padding: 20px;
+  border-bottom: 5px solid var(--orange);
 }
 
 .event-summary{
-  /* background-color: green; */
   grid-area: 'sum';
+  padding: 20px;
 }
 
 /* FORM, INPUT AND LINK STYLINGS */

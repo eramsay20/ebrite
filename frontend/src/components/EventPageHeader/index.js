@@ -11,6 +11,7 @@ function EventPageHeader({ event }){
         <h4>Host: {event.host}</h4>
         <h4>Time: {event.time}</h4>
         <h4>Price: ${event.ticketPrice}</h4>
+        <button>Register</button>
       </div>
     </>
   );
