@@ -1,11 +1,17 @@
 
 const LOAD = 'events/LOAD';
-const LOAD_CATEGORY = 'events/LOAD_CATEGORY';
+// const LOAD_ONE = 'events/LOAD_ONE';
+// const LOAD_CATEGORY = 'events/LOAD_CATEGORY';
 
 const load = events => ({
   type: LOAD,
   events,
 });
+
+// const loadOne = event => ({
+//   type: LOAD_ONE,
+//   event,
+// });
 
 // const loadCategory = category => ({
 //   type: LOAD_CATEGORY,
@@ -21,18 +27,27 @@ export const getEvents = () => async dispatch => {
   }
 };
 
+// export const getEvent = (id) => async dispatch => {
+//   const response = await fetch(`/api/events/${id}`); // check backend get route
 
-const sortEvents = (events) => {
-  return events.sort((eventA, eventB) => eventA - eventB).map((event) => event.time);
-};
+//   if (response.ok) {
+//     const data = await response.json();
+//     dispatch(loadOne(data.event));
+//   }
+// };
 
-const filterEventsByCategory = (events, categoryId) => {
-  return events.filter(event => event.categoryId === categoryId);
-};
 
-const getEventsByCategory = (events, categoryId) => {
-  return events.filter(event => event.categoryId === categoryId);
-};
+// const sortEvents = (events) => {
+//   return events.sort((eventA, eventB) => eventA - eventB).map((event) => event.time);
+// };
+
+// const filterEventsByCategory = (events, categoryId) => {
+//   return events.filter(event => event.categoryId === categoryId);
+// };
+
+// const getEventsByCategory = (events, categoryId) => {
+//   return events.filter(event => event.categoryId === categoryId);
+// };
 
 const initialState = {
   eventsList: [],
@@ -53,6 +68,7 @@ const eventsReducer = (state = initialState, action) => {
         // eventList: action.events,
       };
     }
+
     default:
       return state;
   }

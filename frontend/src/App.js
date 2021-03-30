@@ -6,6 +6,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
+import EventPage from "./components/EventPage";
 import * as sessionActions from './store/session';
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(()=> {
-    // if(isLoaded === false) {
+    if(isLoaded === false) {
       dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    // }
+    }
   }, [dispatch])
 
   return (
@@ -25,6 +26,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MainPage />
+          </Route>
+          <Route path="/events/:eventId">
+            <EventPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />
