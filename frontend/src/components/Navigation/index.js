@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">
           <img style={{width: '70px'}} src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"></img>
         </NavLink>
-        <input type='text'>ADD</input>
+        <div className={`search-bar`}>SEARCH BAR HERE</div>
         {isLoaded && sessionLinks}
     </>
   );
