@@ -57,7 +57,7 @@ body {
   margin-top: 50px;
 }
 
-/* GRID CLASSES */
+/* GRID RELATED CLASSES */
 .header{
   border-bottom: 10px solid var(--orange);
   margin: 0px;
@@ -75,12 +75,6 @@ body {
 .event-image {
   grid-area: 'image';
   background-color: var(--orange);
-  object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-}
-
-.event-image > img {
   object-fit: cover;
   width: 100%;
   max-height: 100%;
@@ -149,4 +143,42 @@ button:hover {
   color: white;
 }
 
+/* CATEGORY BAR */
+
+.category-bar {
+  height: 5vh;
+  border-bottom: 10px solid var(--orange);
+}
+
+.category-bar > a {
+  color: var(--blue);
+}
+
+/* EVENT CARD */
+
+.event-card-container {
+
+}
+
+.event-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  border-radius: 5px;
+
+  background-color: var(--shadow);
+
+}
+
+
+
 /* OTHER STYLINGS */
+
+.event-image > img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}

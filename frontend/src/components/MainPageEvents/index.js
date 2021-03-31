@@ -5,23 +5,29 @@ import { getEvents } from '../../store/events'
 
 function MainPageEvents({ categories, events }){
 
-  const [category, setCategory] = useState('')
-  // todo: pull in category info somehow from state or db
+  const [category, setCategory] = useState('Free')
+
+  useEffect(()=>{
+    console.log('selected category', category)
+  }, [category])
+
+  const eventsByCategory = events.filter(event => event.Category.category === category)
 
   return (
     <>
-      <nav>
-        <div>
+      <div className={`category-bar flex-container`}>
+            <h3>Event Categories</h3>
           {categories &&
           categories.map(category => (
-            <NavLink className="nav-link" key={category} to={`/`}>{category}</NavLink>
+            <h3 className="category" key={category} to={`/`} onClick={() => setCategory(category)}>{category}</h3>
           ))}
         </div>
-      </nav>
-      <div>
+      <div className={`event-card-container flex-container`}>
         { events &&
-        events.map(event => (
-          <NavLink className="nav-link" key={event.id} to={`/events/${event.id}`}>{event.title}</NavLink>
+        eventsByCategory.map(event => (
+          <div className={`event-card flex-vertical`}>
+            <NavLink className="nav-link" key={event.id} to={`/events/${event.id}`}>{event.title}</NavLink>
+          </div>
         ))}
       </div>
     </>
