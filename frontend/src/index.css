@@ -1,5 +1,5 @@
 /* TODO Add site wide styles */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap');
 
 :root {
   --text: #39364F;
@@ -17,6 +17,7 @@ body {
   color: var(--text);
   text-align: center;
   margin: 0 auto;
+  font-weight: 500;
 }
 
 .nav-link {
@@ -147,10 +148,20 @@ button:hover {
 
 .category-bar {
   height: 5vh;
-  border-bottom: 10px solid var(--orange);
+  /* border-bottom: 10px solid var(--orange); */
 }
 
 .category-bar > a {
+  color: var(--blue);
+}
+
+.category {
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.category:hover {
+  font-size: 30px;
   color: var(--blue);
 }
 
@@ -164,16 +175,22 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   margin: 20px;
-  border-radius: 5px;
 
   background-color: var(--shadow);
 
 }
 
 
+
+/* SEARCH BAR  */
+
+.search-bar {
+  background-color: var(--shadow);
+  padding: 10px 100px 8px 100px;
+}
 
 /* OTHER STYLINGS */
 
