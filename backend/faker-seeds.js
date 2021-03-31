@@ -1,80 +1,88 @@
 const faker = require('faker');
-const bcrypt = require('bcryptjs'); // password hashing
 
-const randomNumber = (num) => {
-  return Math.floor(Math.random()*Math.floor(num))+1
-}
-
-const CLASSES = `https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/7/Desk/2020_7$largeimg_286600779.jpeg`
-const FREE = ``;
-const MUSIC = ``;
+const FREE = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/free.jpeg?raw=true`;
+const MUSIC = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/music.png?raw=true`;
+const GAME = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/gaming.jpeg?raw=true`;
+const SHOW = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/shows.jpeg?raw=true`;
+const CLASS = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/classes.jpeg?raw=true`;
+const NETWORK = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/networking.jpeg?raw=true`;
 
 
 const seedEvents = (num) => {
   let i = 0;
   while(i < num){
-    const event1 = {
-      title: faker.lorem.words(6),
-      image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F124377153%2F199607744421%2F1%2Foriginal.20210127-210812?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=1%2C0%2C620%2C310&s=02f65d1569df56733968c8741147a40b',
+    const freeEvent = {
+      title: faker.lorem.words(4),
+      image: FREE,
       host: faker.name.findName(),
-      time: faker.date.future(),
-      summary: faker.lorem.paragraphs(2),
-      ticketPrice: 0.00
-      categoryId: 1, // subtract one from total category count due to +1 in randomNum function
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: 0.00,
+      categoryId: 1,
     }
 
-    const event2 = {
-      title: faker.lorem.words(6),
-      image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F124377153%2F199607744421%2F1%2Foriginal.20210127-210812?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=1%2C0%2C620%2C310&s=02f65d1569df56733968c8741147a40b',
+    const musicEvent = {
+      title: faker.lorem.words(4),
+      image: MUSIC,
       host: faker.name.findName(),
-      time: faker.date.future(),
-      summary: faker.lorem.paragraphs(2),
-      ticketPrice: faker.finance.amount(5, 35, 2), // 26.35
-      categoryId: 2, // subtract one from total category count due to +1 in randomNum function
-    }
-
-
-    const event3 = {
-      title: faker.lorem.words(6),
-      image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F124377153%2F199607744421%2F1%2Foriginal.20210127-210812?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=1%2C0%2C620%2C310&s=02f65d1569df56733968c8741147a40b',
-      host: faker.name.findName(),
-      time: faker.date.future(),
-      summary: faker.lorem.paragraphs(2),
-      ticketPrice: faker.finance.amount(5, 35, 2), // 26.35
-      categoryId: 3, // subtract one from total category count due to +1 in randomNum function
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: Number(faker.finance.amount(5, 35, 2)),
+      categoryId: 2,
     }
 
 
-    const event4 = {
-      title: faker.lorem.words(6),
-      image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F124377153%2F199607744421%2F1%2Foriginal.20210127-210812?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=1%2C0%2C620%2C310&s=02f65d1569df56733968c8741147a40b',
+    const gameEvent = {
+      title: faker.lorem.words(4),
+      image: GAME,
       host: faker.name.findName(),
-      time: faker.date.future(),
-      summary: faker.lorem.paragraphs(2),
-      ticketPrice: faker.finance.amount(5, 35, 2), // 26.35
-      categoryId: 4, // subtract one from total category count due to +1 in randomNum function
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: Number(faker.finance.amount(5, 35, 2)),
+      categoryId: 3,
     }
 
 
-    const event5 = {
-      title: faker.lorem.words(6),
-      image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F124377153%2F199607744421%2F1%2Foriginal.20210127-210812?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=1%2C0%2C620%2C310&s=02f65d1569df56733968c8741147a40b',
+    const showEvent = {
+      title: faker.lorem.words(4),
+      image: SHOW,
       host: faker.name.findName(),
-      time: faker.date.future(),
-      summary: faker.lorem.paragraphs(2),
-      ticketPrice: faker.finance.amount(5, 35, 2, '$'), // $26.35
-      categoryId: 5, // subtract one from total category count due to +1 in randomNum function
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: Number(faker.finance.amount(5, 35, 2)),
+      categoryId: 4,
     }
 
-    console.log(event1,",")
-    console.log(event2,",")
-    console.log(event3,",")
-    console.log(event4,",")
-    console.log(event5,",")
+
+    const classEvent = {
+      title: faker.lorem.words(4),
+      image: CLASS,
+      host: faker.name.findName(),
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: Number(faker.finance.amount(5, 35, 2)),
+      categoryId: 5,
+    }
+
+    const networkEvent = {
+      title: faker.lorem.words(4),
+      image: NETWORK,
+      host: faker.name.findName(),
+      time: `${faker.date.future()}`,
+      summary: faker.lorem.paragraphs(3),
+      ticketPrice: Number(faker.finance.amount(5, 35, 2)),
+      categoryId: 6,
+    }
+
+    console.log(freeEvent,",")
+    console.log(musicEvent,",")
+    console.log(gameEvent,",")
+    console.log(showEvent,",")
+    console.log(classEvent,",")
+    console.log(networkEvent,",")
     i++
   }
 }
-
 
 seedEvents(20)
 

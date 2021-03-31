@@ -28,7 +28,7 @@ function MainPageEvents({ categories, events }){
             </>
           ))}
         </div>
-      <div className={`event-card-container flex-container`}>
+      <div className={`event-card-container`}>
         { events &&
         eventsByCategory.map(event => {
           const time = dateFormat(event.time);

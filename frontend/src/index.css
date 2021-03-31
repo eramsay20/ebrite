@@ -169,12 +169,17 @@ button:hover {
 
 /* EVENT CARD */
 
+.event-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .event-card {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  height: 220px;
-  width: 250px;
+  height: 320px;
+  width: 350px;
   margin: 20px;
   padding: 0px;
 
