@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function EventPageHeader({ event }){
+import RegistrationFormModal from '../RegistrationFormModal';
 
-  const [isOpen, setIsOpen] = useState(false);
+function EventPageHeader({ event }){
 
   return (
     <>
@@ -14,7 +14,7 @@ function EventPageHeader({ event }){
         <h4>Host: {event.host}</h4>
         <h4>Time: {event.time}</h4>
         <h4>Price: ${event.ticketPrice}</h4>
-        <button onClick={() => setIsOpen(true)}>Register</button>
+        <RegistrationFormModal event={event}/>
       </div>
     </>
   );

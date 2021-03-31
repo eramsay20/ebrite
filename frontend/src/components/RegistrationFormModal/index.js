@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Modal } from '../../context/Modal';
-import LoginForm from './LoginForm';
+import RegistrationForm from './RegistrationForm';
 
-function LoginFormModal() {
+function RegistrationFormModal({event}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <NavLink className="nav-link" to={'#'} onClick={() => setShowModal(true)}>Log In</NavLink>
+      <NavLink className="nav-link" to={'#'} onClick={() => setShowModal(true)}>Register</NavLink>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <RegistrationForm event={event}/>
         </Modal>
       )}
     </>
   );
 }
 
-export default LoginFormModal;
+export default RegistrationFormModal;
