@@ -3,7 +3,7 @@
 
 :root {
   --text: #39364F;
-  --background: #FFFFFF;
+  --background: #f7f6f6f5;
   --shadow: #D3D3D3;
   --orange: #F05538;
   --dark-orange: #D1410C;
@@ -20,12 +20,6 @@ body {
   font-weight: 500;
 }
 
-.nav-link {
-  color: var(--dark-orange);
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-}
 
 /* CONTAINERS */
 
@@ -127,10 +121,22 @@ button {
   margin-top: 20px;
 }
 
+.nav-link {
+  color: var(--dark-orange);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .nav-link:hover {
   background-color: var(--orange);
   border: 2px solid white;
   color: white;
+}
+
+.card-nav-link {
+  color: var(--orange);
+  text-decoration: none;
 }
 
 input:focus {
@@ -165,22 +171,26 @@ button:hover {
 
 /* EVENT CARD */
 
-.event-card-container {
-
-}
-
 .event-card {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 250px;
   width: 250px;
   margin: 20px;
+  padding: 0px;
 
-  background-color: var(--shadow);
-
+  background-color: white;
 }
 
+.event-card:hover {
+  box-shadow: 3px 3px 15px 5px var(--shadow);
+}
+
+.event-card-title {
+  color: var(--text);
+  font-weight: bold;
+}
 
 
 /* SEARCH BAR  */
