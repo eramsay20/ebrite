@@ -7,11 +7,14 @@ function MainPageEvents({ categories, events }){
 
   const [category, setCategory] = useState('Free')
 
-  useEffect(()=>{
-    console.log('selected category', category)
-  }, [category])
-
   const eventsByCategory = events.filter(event => event.Category.category === category)
+
+  const dateFormat = (dateString) => {
+    const dateObj = new Date(dateString)
+    const day = dateObj.toLocaleDateString();
+    const time = dateObj.toLocaleTimeString()
+    return `${day}, ${time}`
+  }
 
   return (
     <>
@@ -21,13 +24,15 @@ function MainPageEvents({ categories, events }){
           categories.map(category => (
             <>
               <h3 style={{paddingLeft: '0px'}} className="category" key={category} onClick={() => setCategory(category)}>{category}</h3>
-              <span style={{paddingRight: '30px'}}></span>
+              <span key={`${category}-span`} style={{paddingRight: '30px'}}></span>
             </>
           ))}
         </div>
       <div className={`event-card-container flex-container`}>
         { events &&
-        eventsByCategory.map(event => (
+        eventsByCategory.map(event => {
+          const time = dateFormat(event.time);
+          return (
           <div className={`event-card`}>
             <NavLink className="card-nav-link" key={event.id} to={`/events/${event.id}`}>
               <div className={`event-image`}>
@@ -35,11 +40,12 @@ function MainPageEvents({ categories, events }){
               </div>
               <div>
                 <p className={`event-card-title`}>{event.title}</p>
-                <p>{event.time}</p>
+                <p>{time}</p>
               </div>
             </NavLink>
           </div>
-        ))}
+          )
+        })}
       </div>
     </>
   );
