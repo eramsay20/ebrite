@@ -19,7 +19,10 @@ function MainPageEvents({ categories, events }){
       <div style={{justifyContent: 'flex-start', paddingLeft: '30px'}} className={`category-bar flex-container`}>
           {categories &&
           categories.map(category => (
-            <h3 style={{paddingLeft: '0px', paddingRight: '30px'}} className="category" key={category} onClick={() => setCategory(category)}>{category}</h3>
+            <>
+              <h3 style={{paddingLeft: '0px'}} className="category" key={category} onClick={() => setCategory(category)}>{category}</h3>
+              <span style={{paddingRight: '30px'}}></span>
+            </>
           ))}
         </div>
       <div className={`event-card-container flex-container`}>

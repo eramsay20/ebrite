@@ -162,11 +162,13 @@ button:hover {
 .category {
   cursor: pointer;
   font-weight: lighter;
+  color: rgb(165, 160, 160)
 }
 
 .category:hover {
-  font-size: 30px;
+  font-size: 24px;
   color: var(--blue);
+  border-bottom: 3px solid var(--blue);
 }
 
 /* EVENT CARD */
