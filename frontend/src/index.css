@@ -48,10 +48,6 @@ body {
   align-items: center;
 }
 
-.form-container {
-  margin-top: 50px;
-}
-
 /* GRID RELATED CLASSES */
 .header{
   border-bottom: 10px solid var(--orange);
@@ -176,8 +172,8 @@ button:hover {
 .event-card {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 250px;
+  /* align-items: center; */
+  height: 220px;
   width: 250px;
   margin: 20px;
   padding: 0px;
