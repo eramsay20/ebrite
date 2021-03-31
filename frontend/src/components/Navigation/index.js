@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import LoginFormModal from '../LoginFormModal'
 import ProfileButton from './ProfileButton';
 
 
@@ -17,7 +18,7 @@ function Navigation({ isLoaded }){
   } else { // else, render login & signup links instead
     sessionLinks = (
       <>
-        <NavLink className="nav-link" to="/login" style={{ marginLeft: '.5rem' }}> Log In</NavLink>
+        <LoginFormModal />
         <NavLink className="nav-link" to="/signup" style={{ marginLeft: '.5rem' }}> Sign Up</NavLink>
       </>
     );

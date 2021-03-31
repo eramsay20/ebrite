@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function EventPageHeader({ event }){
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className={`event-image`}>
@@ -11,7 +14,7 @@ function EventPageHeader({ event }){
         <h4>Host: {event.host}</h4>
         <h4>Time: {event.time}</h4>
         <h4>Price: ${event.ticketPrice}</h4>
-        <button>Register</button>
+        <button onClick={() => setIsOpen(true)}>Register</button>
       </div>
     </>
   );
