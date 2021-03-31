@@ -5,8 +5,9 @@ module.exports = {
     return queryInterface.bulkInsert('Categories', [
       { category: 'Free'},
       { category: 'Music'},
-      { category: 'Games'},
-      { category: 'Food & Drink'},
+      { category: 'Gaming'},
+      { category: 'Shows'},
+      { category: 'Classes'},
       { category: 'Networking'},
     ], {});
   },
