@@ -1,6 +1,6 @@
 const faker = require('faker');
 
-const FREE = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/free.jpeg?raw=true`;
+const FREE = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/eventbrite_image.jpeg?raw=true`;
 const MUSIC = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/music.png?raw=true`;
 const GAME = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/gaming.jpeg?raw=true`;
 const SHOW = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/shows.jpeg?raw=true`;
@@ -84,6 +84,6 @@ const seedEvents = (num) => {
   }
 }
 
-seedEvents(20)
+seedEvents(9)
 
 // summary: faker.lorem.sentences(6),
