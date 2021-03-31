@@ -24,7 +24,7 @@ function LoginForm() {
 
   return (
     <>
-      <div className={`form-container flex-container`}>
+      <div className={`flex-container`}>
         <form onSubmit={handleSubmit}>
           <ul>
             { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
