@@ -66,11 +66,11 @@ const seedEvents = (num) => {
       categoryId: 5, // subtract one from total category count due to +1 in randomNum function
     }
 
-    console.log(event1, ",")
-    console.log(event2, ",")
-    console.log(event3, ",")
-    console.log(event4, ",")
-    console.log(event5, ",")
+    console.log(event1,",")
+    console.log(event2,",")
+    console.log(event3,",")
+    console.log(event4,",")
+    console.log(event5,",")
     i++
   }
 }
