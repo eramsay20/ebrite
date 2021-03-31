@@ -25,8 +25,16 @@ function MainPageEvents({ categories, events }){
       <div className={`event-card-container flex-container`}>
         { events &&
         eventsByCategory.map(event => (
-          <div className={`event-card flex-vertical`}>
-            <NavLink className="nav-link" key={event.id} to={`/events/${event.id}`}>{event.title}</NavLink>
+          <div className={`event-card`}>
+            <NavLink className="card-nav-link" key={event.id} to={`/events/${event.id}`}>
+              <div className={`event-image`}>
+                <img src={event.image}></img>
+              </div>
+              <div>
+                <p className={`event-card-title`}>{event.title}</p>
+                <p>{event.time}</p>
+              </div>
+            </NavLink>
           </div>
         ))}
       </div>
