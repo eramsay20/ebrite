@@ -19,7 +19,7 @@ function MainPageEvents({ categories, events }){
             <h3>Event Categories</h3>
           {categories &&
           categories.map(category => (
-            <h3 className="category" key={category} to={`/`} onClick={() => setCategory(category)}>{category}</h3>
+            <h3 className="category" key={category} onClick={() => setCategory(category)}>{category}</h3>
           ))}
         </div>
       <div className={`event-card-container flex-container`}>
