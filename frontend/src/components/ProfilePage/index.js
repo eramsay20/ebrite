@@ -12,9 +12,13 @@ function ProfilePage(){
 
   return (
     <>
-      <div className='event-grid-container'>
-        <ProfileSettings user={sessionUser} />
-        <ProfileEvents registered={registered} user={sessionUser}/>
+      <div className='profile-grid-container'>
+        <div className='profile-settings'>
+          <ProfileSettings user={sessionUser} />
+        </div>
+        <div className='profile-events'>
+          <ProfileEvents registered={registered} user={sessionUser}/>
+        </div>
       </div>
     </>
   );

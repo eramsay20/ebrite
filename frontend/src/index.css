@@ -44,6 +44,18 @@ body {
    'sum sum';
 }
 
+.profile-grid-container {
+  display: grid;
+  background-color: var(--orange);
+  grid-template: 3fr 7fr / 3fr 7fr;
+  gap: 5px;
+  height: 80vh;
+  width: 100vw;
+  grid-template-areas:
+   'profile registered',
+   'settings favorites';
+}
+
 .flex-container {
   display: flex;
   justify-content: space-around;
@@ -95,6 +107,56 @@ body {
   grid-area: 'sum';
   padding: 20px;
 }
+
+.event-summary{
+  grid-area: 'sum';
+  padding: 20px;
+}
+
+/* profile page grid  */
+
+.profile-settings{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-events{
+  display: flex;
+  flex-direction: column;
+  /* background-color: green; */
+}
+
+/* 'profile registered',
+'settings favorites'; */
+
+.profile-picture-container {
+  grid-area: 'profile';
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-settings-container {
+  grid-area: 'settings';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 60vh;
+  width: 100%;
+}
+
+.registered-events-container {
+  grid-area: 'registered';
+}
+
+.favorite-events-container {
+  grid-area: 'favorites';
+}
+
+
+
 
 /* FORM, INPUT AND LINK STYLINGS */
 form {
