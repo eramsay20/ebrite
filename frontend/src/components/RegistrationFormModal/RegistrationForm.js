@@ -40,8 +40,9 @@ function RegistrationForm({event}) {
   let orderSummary = `Order Total: (${ticketCount}) x ${event.ticketPrice} = $${totalCost}`
 
   const registered = (registeredEventIds.find(id => id === event.id) !== undefined )
-  const successMessage = `Alright!! You're signed up!`
-  const closeWindow = `You may now close this window.`
+  const successMessage = `Alright! You're signed up!`
+  const closeWindow = `You may now click outside this window to close.`
+  const registerMessage = registered ? `I want more tickets` : 'Register';
 
   return (
     <>
@@ -70,7 +71,7 @@ function RegistrationForm({event}) {
               required
             />
           </label>
-          <button disabled={registered} type="submit">Register</button>
+          <button type="submit">{registerMessage}</button>
         </form>
       </div>
     </>
