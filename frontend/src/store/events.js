@@ -31,7 +31,6 @@ export const getEvents = () => async dispatch => {
 export const registerEvent = (payload) => async dispatch => {
   const eventId = payload.id;
   const ticketCount = parseInt(payload.ticketCount, 10);
-  console.log('THUNK: ID, TICKETCOUNT', eventId, ticketCount);
 
   const response = await csrfFetch(`/api/events/${eventId}/registration`, {
     method: 'POST',
