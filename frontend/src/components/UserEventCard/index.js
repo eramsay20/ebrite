@@ -12,9 +12,10 @@ function UserEventCard({ event, time, remove }){
           <div>
             <p className={`event-card-title`}>{event.title}</p>
             <p>{time}</p>
+            <p>{time}</p>
           </div>
         </NavLink>
-        <button onClick={() => {remove(event.id)}}>Remove</button>
+        <button className={`remove-btn`} onClick={() => {remove(event.id)}}>Remove</button>
       </div>
     </>
   );

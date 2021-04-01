@@ -284,12 +284,19 @@ button:hover {
 .user-event-card {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  position: relative;
   height: auto;
   width: 200px;
   margin: 20px;
   padding: 0px;
 
   background-color: white;
+}
+
+.remove-btn {
+  position: absolute;
+  bottom: 5px;
 }
 
 .user-event-card-image-container {
