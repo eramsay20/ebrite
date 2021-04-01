@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Favorite } = require('../../db/models');
+const { User, Favorite, Registration } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
@@ -31,10 +31,10 @@ const validateSignup = [
 /* GET */
 
 // Load user profile page; require signed in user to load
-router.get('/profile', requireAuth, asyncHandler( async(req, res) => {
-  const { user } = req;
-  res.json({user})
-}));
+// router.get('/profile', requireAuth, asyncHandler( async(req, res) => {
+//   const { user } = req;
+//   res.json({user})
+// }));
 
 
 /* POST */

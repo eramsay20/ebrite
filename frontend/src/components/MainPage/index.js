@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getEvents } from '../../store/events';
+import { getEvents  } from '../../store/events';
 import MainPageEvents from '../MainPageEvents';
 import MainPageBanner from '../MainPageBanner';
 import './MainPage.css';

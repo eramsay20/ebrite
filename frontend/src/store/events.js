@@ -1,12 +1,24 @@
 import { csrfFetch } from '../store/csrf';
 
-const LOAD = 'events/LOAD';
+const LOAD_EVENTS = 'events/LOAD_EVENTS';
+const LOAD_REGISTERED = 'events/LOAD_REGISTERED';
+const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
 const REGISTER = 'events/REGISTER';
 // const LOAD_CATEGORY = 'events/LOAD_CATEGORY';
 
-const load = events => ({
-  type: LOAD,
+const loadEvents = events => ({
+  type: LOAD_EVENTS,
   events,
+});
+
+const loadRegistered = registered => ({
+  type: LOAD_REGISTERED,
+  registered,
+});
+
+const loadFavorites = favorites => ({
+  type: LOAD_FAVORITES,
+  favorites,
 });
 
 const register = event => ({
@@ -14,20 +26,38 @@ const register = event => ({
   event,
 });
 
-
+//GET all events
 export const getEvents = () => async dispatch => {
   const response = await fetch(`/api/events/`); // check backend get route
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(load(data.events));
+    dispatch(loadEvents(data.events));
   }
 };
 
-// getRegistered
+// GET registered events
+export const getRegistered = () => async dispatch => {
+  const response = await fetch(`/api/events/registrations`); // check backend get route
 
-// getFavorites
+  if (response.ok) {
+    const registered = await response.json();
+    dispatch(loadRegistered(registered));
+  }
+};
 
+// GET favorite events
+export const getFavorites = () => async dispatch => {
+  const response = await fetch(`/api/events/favorites`); // check backend get route
+
+  if (response.ok) {
+    const favorites = await response.json();
+    dispatch(loadFavorites(favorites));
+  }
+};
+
+
+// POST add new registration to Registration table
 export const registerEvent = (payload) => async dispatch => {
   const eventId = payload.id;
   const ticketCount = parseInt(payload.ticketCount, 10);
@@ -45,18 +75,6 @@ export const registerEvent = (payload) => async dispatch => {
 };
 
 
-// const sortEvents = (events) => {
-//   return events.sort((eventA, eventB) => eventA - eventB).map((event) => event.time);
-// };
-
-// const filterEventsByCategory = (events, categoryId) => {
-//   return events.filter(event => event.categoryId === categoryId);
-// };
-
-// const getEventsByCategory = (events, categoryId) => {
-//   return events.filter(event => event.categoryId === categoryId);
-// };
-
 const initialState = {
   eventsList: [],
   registered: [],
@@ -65,7 +83,7 @@ const initialState = {
 
 const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD: {
+    case LOAD_EVENTS: {
       const allEvents = {};
       action.events.forEach(event => {
         allEvents[event.id] = event;
@@ -74,6 +92,18 @@ const eventsReducer = (state = initialState, action) => {
         ...allEvents,
         ...state,
         eventsList: action.events,
+      };
+    }
+    case LOAD_REGISTERED: {
+      return {
+        ...state,
+        registered: [...state.registered, ...action.registered]
+      };
+    }
+    case LOAD_FAVORITES: {
+      return {
+        ...state,
+        favorites: [...state.favorites, ...action.favorites]
       };
     }
     case REGISTER: {

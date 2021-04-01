@@ -1,16 +1,38 @@
 const router = require('express').Router()
 const asyncHandler = require('express-async-handler');
 
-const { Event, Registration, Category } = require('../../db/models');
-const { requireAuth } = require('../../utils/auth');
+const { Event, Registration, Category, Favorite, User } = require('../../db/models');
+const { restoreUser, requireAuth } = require('../../utils/auth');
 
 /* GET */
 
-// Load all events
+// Load all events - OK
 router.get('/', asyncHandler( async(req, res) => {
   const events = await Event.findAll({ include: Category });
   res.json({ events })
 }))
+
+// Load users registered events - OK
+router.get('/registrations', restoreUser, asyncHandler( async(req, res) => {
+  const { user } = req
+  const registrations = await Registration.findAll({
+    where: { userId: user.id },
+    include: [Event],
+  });
+  const registeredEvents = registrations.map(reg => reg.Event);
+  res.json(registeredEvents)
+}))
+
+// Load users favorite events
+router.get('/favorites', restoreUser, asyncHandler( async(req, res) => {
+  const { user } = req
+  const userJoinData = await User.findByPk(1, { include: Event })
+  const favorites = userJoinData.Events
+  res.json(favorites)
+}))
+
+
+
 
 // Load event page; pass back related event info
 // router.get('/:id', asyncHandler( async(req, res) => {
