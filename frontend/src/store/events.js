@@ -136,13 +136,13 @@ const eventsReducer = (state = initialState, action) => {
     case LOAD_REGISTERED: {
       return {
         ...state,
-        registered: [...action.registered]
+        registered: action.registered
       };
     }
     case LOAD_FAVORITES: {
       return {
         ...state,
-        favorites: [...state.favorites, ...action.favorites]
+        favorites: action.favorites
       };
     }
     case REGISTER: {
