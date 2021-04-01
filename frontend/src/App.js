@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import SignupFormPage from './components/SignupFormPage';
 import MainPage from "./components/MainPage";
 import EventPage from "./components/EventPage";
+import ProfilePage from "./components/ProfilePage";
 import Footer from "./components/Footer";
 
 import './index.css';
@@ -39,6 +40,11 @@ function App() {
           <Route path='/events/:eventId'>
             <div className='body'>
               <EventPage />
+            </div>
+          </Route>
+          <Route path='/profile'>
+            <div className='body'>
+              <ProfilePage />
             </div>
           </Route>
           <Route path='/signup'>
