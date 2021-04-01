@@ -12,7 +12,7 @@ function EventPageHeader({ event }){
       </div>
       <div className={`event-details-container`}>
         <div>
-          <h2 className={`title`}>{event.title}</h2>
+          <h2 style={{textDecoration: 'underline', textTransform: 'capitalize'}}>{event.title}</h2>
           <h4>Host: {event.host}</h4>
         </div>
         <div>
