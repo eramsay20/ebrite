@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import RegistrationFormModal from '../RegistrationFormModal';
+import { dateFormat } from '../Utils/'
 
 function EventPageHeader({ event }){
 
@@ -10,11 +11,17 @@ function EventPageHeader({ event }){
         <img className={`event-image-container`} src={event.image}></img>
       </div>
       <div className={`event-details-container`}>
-        <h2>{event.title}</h2>
-        <h4>Host: {event.host}</h4>
-        <h4>Time: {event.time}</h4>
-        <h4>Price: ${event.ticketPrice}</h4>
-        <RegistrationFormModal event={event}/>
+        <div>
+          <h2 className={`title`}>{event.title}</h2>
+          <h4>Host: {event.host}</h4>
+        </div>
+        <div>
+          <h4>Time: {dateFormat(event.time)}</h4>
+          <h4>Price: ${event.ticketPrice}</h4>
+        </div>
+        <div>
+          <RegistrationFormModal event={event}/>
+         </div>
       </div>
     </>
   );

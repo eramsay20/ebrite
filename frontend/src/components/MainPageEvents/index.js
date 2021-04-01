@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getEvents } from '../../store/events'
+import { dateFormat } from '../Utils/'
 
 function MainPageEvents({ categories, events }){
 
   const [category, setCategory] = useState('Free')
 
   const eventsByCategory = events.filter(event => event.Category.category === category)
-
-  const dateFormat = (dateString) => {
-    const dateObj = new Date(dateString)
-    const day = dateObj.toLocaleDateString();
-    const time = dateObj.toLocaleTimeString()
-    return `${day}, ${time}`
-  }
 
   return (
     <>
