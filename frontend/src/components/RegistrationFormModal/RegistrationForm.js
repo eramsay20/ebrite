@@ -7,7 +7,7 @@ function RegistrationForm({event}) {
   const dispatch = useDispatch();
 
   const registeredList = useSelector(state => state.events.registered);
-  const registeredEventIds = registeredList.map(event => event.registeredEvent.eventId)
+  const registeredEventIds = registeredList.map(event => event.id)
 
   // console.log(registeredEventIds);
 

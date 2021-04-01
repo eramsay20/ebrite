@@ -54,15 +54,13 @@ router.get('/favorites', restoreUser, asyncHandler( async(req, res) => {
 // Register user for an event
 router.post('/:id/registration', requireAuth, asyncHandler( async(req, res) => {
   const { ticketCount } = req.body; // assumed mini form on page collecting the ticketCount from a select drop down
-  console.log(ticketCount);
   const eventId = req.params.id
   const userId = req.user.id
 
-  const registeredEvent = await Registration.create({
-    eventId, userId, ticketCount
-  })
+  const registeredEvent = await Registration.create({ eventId, userId, ticketCount })
+  const event = await Event.findByPk(eventId)
 
-  res.json({ registeredEvent })
+  res.json(event) //add event obj to array of registered events on front end
 }))
 
 
