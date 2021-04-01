@@ -8,13 +8,16 @@ import ProfileEvents from '../ProfileEvents';
 
 function ProfilePage(){
   const dispatch = useDispatch();
-  const registered = useSelector(state => state.events.registered);
 
-  const sessionUser = useSelector(state => state.session.user);
   useEffect(()=> {
     dispatch(getRegistered())
     dispatch(getFavorites())
   }, [dispatch])
+
+  const favorites = useSelector(state => state.events.favorites);
+  const registered = useSelector(state => state.events.registered);
+  const sessionUser = useSelector(state => state.session.user);
+
   return (
     <>
       <div className='profile-grid-container'>
@@ -22,7 +25,7 @@ function ProfilePage(){
           <ProfileSettings user={sessionUser} />
         </div>
         <div className='profile-events'>
-          <ProfileEvents registered={registered} user={sessionUser}/>
+          <ProfileEvents registered={registered} favorites={favorites}/>
         </div>
       </div>
     </>

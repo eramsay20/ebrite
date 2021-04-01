@@ -149,10 +149,22 @@ body {
 
 .registered-events-container {
   grid-area: 'registered';
+  height: 250px;
+  overflow-y: scroll;
+  object-fit: contain;
+  background-color: var(--blue)
+}
+
+.scale{
+  transform: scale(.7);
 }
 
 .favorite-events-container {
   grid-area: 'favorites';
+  height: 250px;
+  overflow-y: scroll;
+  object-fit: contain;
+  background-color: var(--blue)
 }
 
 
