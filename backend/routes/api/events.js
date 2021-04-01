@@ -59,4 +59,15 @@ router.delete('/:id/registration', requireAuth, asyncHandler( async(req, res) =>
   res.json(eventId)
 }))
 
+// Remove user's registration to an event
+router.delete('/:id/favorites', requireAuth, asyncHandler( async(req, res) => {
+  const eventId = req.params.id
+  const userId = req.user.id
+
+  const favorite = await Favorite.findOne({where : { eventId, userId }});
+  await favorite.destroy()
+
+  res.json(eventId)
+}))
+
 module.exports = router;

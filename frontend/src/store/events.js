@@ -95,7 +95,6 @@ export const unregisterEvent = (eventId) => async dispatch => {
 
   if (response.ok) {
     const unregisteredId = await response.json();
-    console.log(unregisteredId);
     dispatch(unregister(unregisteredId));
   }
 };
@@ -137,7 +136,7 @@ const eventsReducer = (state = initialState, action) => {
     case LOAD_REGISTERED: {
       return {
         ...state,
-        registered: [...state.registered, ...action.registered]
+        registered: [...action.registered]
       };
     }
     case LOAD_FAVORITES: {
@@ -147,10 +146,10 @@ const eventsReducer = (state = initialState, action) => {
       };
     }
     case REGISTER: {
-      return {
-        ...state,
-        registered: [...state.registered, action.event ]
-      };
+      newState = {...state}
+      const newRegistered = [...newState.registered, action.event]
+      newState.registered = newRegistered;
+      return newState;
     }
     case UNREGISTER: {
       newState = {...state}; // copy state into new obj
@@ -162,23 +161,16 @@ const eventsReducer = (state = initialState, action) => {
       newState.registered = newRegistered;
       return newState;
     }
+    case UNFAVORITE: {
+      newState = {...state}; // copy state into new obj
+      // delete newState[action.eventId]; // delete unregistered event from state
 
+      // update registered list by filtering for all BUT the unregistered event id
+      const newFavorites = newState.favorites.filter(event => event.id.toString() !== action.eventId.toString());
 
-
-
-
-    // case UNFAVORITE: {
-    //   newState = {...state}; // copy state into new obj
-    //   delete newState[action.eventId]; // delete unregistered event from state
-
-    //   // update registered list by filtering for all BUT the unregistered event id
-    //   newState.favorites = newState.favorites.filter(event => {
-    //       console.log('MAPEVENT EVENT >>>>>>>', event);
-    //       return event.id.toString() !== action.eventId.toString()
-    //     });
-
-    //   return newState;
-    // }
+      newState.favorites = newFavorites;
+      return newState;
+    }
     default:
       return state;
   }
