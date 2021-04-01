@@ -3,7 +3,7 @@
 
 :root {
   --text: #39364F;
-  --background: #f7f6f6f5;
+  --background: #f7f6f6;
   --shadow: #D3D3D3;
   --orange: #F05538;
   --dark-orange: #D1410C;
@@ -50,8 +50,9 @@ body {
 
 /* GRID RELATED CLASSES */
 .header{
-  border-bottom: 10px solid var(--orange);
-  margin: 0px;
+  /* border-bottom: 10px solid var(--orange); */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .body{
