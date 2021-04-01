@@ -42,7 +42,7 @@ function RegistrationForm({event}) {
   const registered = (registeredEventIds.find(id => id === event.id) !== undefined )
   const successMessage = `Alright! You're signed up!`
   const closeWindow = `You may now click outside this window to close.`
-  const registerMessage = registered ? `I want more tickets` : 'Register';
+  const registerMessage = registered ? `I NEEDS more tickets!` : 'Register';
 
   return (
     <>
