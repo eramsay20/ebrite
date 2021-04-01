@@ -21,10 +21,10 @@ function ProfilePage(){
   return (
     <>
       <div className='profile-grid-container'>
-        <div className='profile-settings'>
+        <div className='profile-settings-container'>
           <ProfileSettings user={sessionUser} />
         </div>
-        <div className='profile-events'>
+        <div className='profile-events-container'>
           <ProfileEvents registered={registered} favorites={favorites}/>
         </div>
       </div>
