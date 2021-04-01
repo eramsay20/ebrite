@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { Redirect } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
+import  { registerEvent } from '../../store/events';
 
 function RegistrationForm({event}) {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector(state => state.session.user);
+  const registeredList = useSelector(state => state.events.registered);
+  const registeredEventIds = registeredList.map(event => event.registeredEvent.eventId)
+
+  console.log(registeredEventIds);
 
   // form input states
   const [ticketCount, setTicketCount] = useState(0);
@@ -17,27 +23,38 @@ function RegistrationForm({event}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    // return dispatch(sessionActions.login({ credential, password }))
-    //   .catch(async (res) => {
-    //     const data = await res.json();
-    //     if (data && data.errors) setErrors(data.errors);
-    //   });
+    const payload = { id: event.id, ticketCount }
+    return dispatch(registerEvent(payload))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
   }
-  //
-
+  // dynamically show ticket count and order total
   useEffect(() => {
     let price = event.ticketPrice;
     let tickets = ticketCount;
     let cost = price * tickets;
     setTotalCost(cost);
   }, [ticketCount])
-
   let orderSummary = `Order Total: (${ticketCount}) x ${event.ticketPrice} = $${totalCost}`
+
+  const registered = (registeredEventIds.find(id => id === event.id) !== undefined )
+  const successMessage = `Alright!! You're signed up!`
+  const closeWindow = `You may now close this window.`
 
   return (
     <>
       <div>
-        <h3>{orderSummary}</h3>
+       { registered && (
+          <>
+            <h3 style={{color:'green'}}>{successMessage}</h3>
+            <p>{closeWindow}</p>
+          </>
+        )}
+       { !registered && (
+            <h3>{orderSummary}</h3>
+        )}
       </div>
       <div className={`flex-container`}>
         <form onSubmit={handleSubmit}>
@@ -53,7 +70,7 @@ function RegistrationForm({event}) {
               required
             />
           </label>
-          <button type="submit">Register</button>
+          <button disabled={registered} type="submit">Register</button>
         </form>
       </div>
     </>
