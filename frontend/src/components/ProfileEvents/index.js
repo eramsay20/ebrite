@@ -9,7 +9,6 @@ function ProfileEvents({ registered, favorites }){
       <div className={`profile-events`}>
           <h2 style={{textDecoration: 'underline'}}>Registered Events</h2>
           <div className={`profile-events-container`}>
-            <div className={`event-card-container scale`}>
             { registered &&
             registered.map(event => {
               const time = dateFormat(event.time);
@@ -30,7 +29,6 @@ function ProfileEvents({ registered, favorites }){
           </div>
           <h2 style={{textDecoration: 'underline'}}>Favorite Events</h2>
           <div className={`favorites-events-container`}>
-            <div className={`event-card-container scale`}>
             { favorites &&
             favorites.map(event => {
               const time = dateFormat(event.time);
@@ -49,8 +47,6 @@ function ProfileEvents({ registered, favorites }){
               )
             })}
           </div>
-        </div>
-      </div>
       </div>
     </>
   );
