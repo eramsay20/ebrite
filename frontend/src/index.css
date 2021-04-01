@@ -229,8 +229,9 @@ button:hover {
 /* SEARCH BAR  */
 
 .search-bar {
-  background-color: var(--shadow);
-  padding: 10px 100px 8px 100px;
+  background-color: white;
+  font-size: 12px;
+  padding: 10px 200px 8px 200px;
 }
 
 /* OTHER STYLINGS */
