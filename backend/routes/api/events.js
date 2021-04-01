@@ -32,23 +32,6 @@ router.get('/favorites', restoreUser, asyncHandler( async(req, res) => {
 }))
 
 
-
-
-// Load event page; pass back related event info
-// router.get('/:id', asyncHandler( async(req, res) => {
-//   const eventId = parseInt(req.params.id, 10)
-//   console.log(eventId);
-//   const event = await Event.findByPk(eventId);
-//   res.json({ event })
-// }))
-
-// Load event registration page; pass back related event info
-// router.get('/:id/registration', asyncHandler( async(req, res) => {
-//   const eventId = parseInt(req.params.id, 10)
-//   const event = await Event.findByPk(eventId);
-//   res.json({ event })
-// }))
-
 /* POST */
 
 // Register user for an event
@@ -67,17 +50,13 @@ router.post('/:id/registration', requireAuth, asyncHandler( async(req, res) => {
 /* DELETE */
 // Remove user's registration to an event
 router.delete('/:id/registration', requireAuth, asyncHandler( async(req, res) => {
-  const eventId = parseInt(req.params.id, 10)
+  const eventId = req.params.id
   const userId = req.user.id
 
-  const registration = await Registration.findOne({
-    where: {
-      userId: userId,
-      eventId: eventId
-    }
-  })
+  const registration = await Registration.findOne({where : { eventId, userId }});
   await registration.destroy()
-  res.json({ message: 'success' })
+
+  res.json(eventId)
 }))
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function UserEventCard({ event, time }){
+function UserEventCard({ event, time, remove }){
   return (
     <>
       <div key={event.id} className={`user-event-card`}>
@@ -12,9 +12,9 @@ function UserEventCard({ event, time }){
           <div>
             <p className={`event-card-title`}>{event.title}</p>
             <p>{time}</p>
-            <button>Remove</button>
           </div>
         </NavLink>
+        <button onClick={() => {remove(event.id)}}>Remove</button>
       </div>
     </>
   );

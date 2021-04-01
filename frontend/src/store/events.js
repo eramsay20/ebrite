@@ -4,7 +4,9 @@ const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_REGISTERED = 'events/LOAD_REGISTERED';
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
 const REGISTER = 'events/REGISTER';
-// const LOAD_CATEGORY = 'events/LOAD_CATEGORY';
+const UNREGISTER = 'events/UNREGISTER';
+const UNFAVORITE = 'events/UNFAVORITE';
+
 
 const loadEvents = events => ({
   type: LOAD_EVENTS,
@@ -24,6 +26,16 @@ const loadFavorites = favorites => ({
 const register = event => ({
   type: REGISTER,
   event,
+});
+
+const unregister = eventId => ({
+  type: UNREGISTER,
+  eventId,
+});
+
+const unfavorite = eventId => ({
+  type: UNFAVORITE,
+  eventId,
 });
 
 //GET all events
@@ -75,6 +87,32 @@ export const registerEvent = (payload) => async dispatch => {
 };
 
 
+// DELETE registered events
+export const unregisterEvent = (eventId) => async dispatch => {
+  const response = await csrfFetch(`/api/events/${eventId}/registration`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    const unregisteredId = await response.json();
+    console.log(unregisteredId);
+    dispatch(unregister(unregisteredId));
+  }
+};
+
+// DELETE favorite events
+export const unfavoriteEvent = (eventId) => async dispatch => {
+  const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    const unfavoriteId = await response.json();
+    dispatch(unfavorite(unfavoriteId));
+  }
+};
+
+
 const initialState = {
   eventsList: [],
   registered: [],
@@ -82,6 +120,8 @@ const initialState = {
 };
 
 const eventsReducer = (state = initialState, action) => {
+  let newState;
+
   switch (action.type) {
     case LOAD_EVENTS: {
       const allEvents = {};
@@ -112,9 +152,39 @@ const eventsReducer = (state = initialState, action) => {
         registered: [...state.registered, action.event ]
       };
     }
+    case UNREGISTER: {
+      newState = {...state}; // copy state into new obj
+      // delete newState[action.eventId]; // delete unregistered event from state
+
+      // update registered list by filtering for all BUT the unregistered event id
+      const newRegistered = newState.registered.filter(event => event.id.toString() !== action.eventId.toString());
+
+      newState.registered = newRegistered;
+      return newState;
+    }
+
+
+
+
+
+    // case UNFAVORITE: {
+    //   newState = {...state}; // copy state into new obj
+    //   delete newState[action.eventId]; // delete unregistered event from state
+
+    //   // update registered list by filtering for all BUT the unregistered event id
+    //   newState.favorites = newState.favorites.filter(event => {
+    //       console.log('MAPEVENT EVENT >>>>>>>', event);
+    //       return event.id.toString() !== action.eventId.toString()
+    //     });
+
+    //   return newState;
+    // }
     default:
       return state;
   }
 }
 
 export default eventsReducer;
+
+// new State = {}
+//
