@@ -28,15 +28,15 @@ function MainPageEvents({ categories, events }){
             </>
           ))}
         </div>
-      <div className={`event-card-container`}>
+      <div className={`event-card-container flex-container`}>
         { events &&
         eventsByCategory.map(event => {
           const time = dateFormat(event.time);
           return (
           <div className={`event-card`}>
             <NavLink className="card-nav-link" key={event.id} to={`/events/${event.id}`}>
-              <div className={`event-image`}>
-                <img src={event.image}></img>
+              <div className={`event-card-image-container`}>
+                <img className={`event-card-image`} src={event.image}></img>
               </div>
               <div>
                 <p className={`event-card-title`}>{event.title}</p>
