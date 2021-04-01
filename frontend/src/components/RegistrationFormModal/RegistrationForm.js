@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 
-import * as sessionActions from '../../store/session';
 import  { registerEvent } from '../../store/events';
 
 function RegistrationForm({event}) {
   const dispatch = useDispatch();
 
-  const sessionUser = useSelector(state => state.session.user);
   const registeredList = useSelector(state => state.events.registered);
   const registeredEventIds = registeredList.map(event => event.registeredEvent.eventId)
 
-  console.log(registeredEventIds);
+  // console.log(registeredEventIds);
 
   // form input states
   const [ticketCount, setTicketCount] = useState(0);
@@ -36,7 +33,7 @@ function RegistrationForm({event}) {
     let tickets = ticketCount;
     let cost = price * tickets;
     setTotalCost(cost);
-  }, [ticketCount])
+  }, [ticketCount, event.ticketPrice])
   let orderSummary = `Order Total: (${ticketCount}) x ${event.ticketPrice} = $${totalCost}`
 
   const registered = (registeredEventIds.find(id => id === event.id) !== undefined )

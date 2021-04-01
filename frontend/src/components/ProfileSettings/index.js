@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function ProfileSettings({ user }){
 
   return (
     <>
           <div className={`profile-picture-container`}>
-            <img className={'event-card-image'} src={'https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/eventbrite_image.jpeg?raw=true'}></img>
+            <img alt={`img`} className={'event-card-image'} src={'https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/eventbrite_image.jpeg?raw=true'}></img>
           </div>
           <div className={`profile-settings-container`}>
             <h2 style={{textDecoration: 'underline'}}>User Settings</h2>

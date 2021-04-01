@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { dateFormat } from '../Utils/'
+import React from 'react';
+// import { NavLink } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { dateFormat } from '../Utils/'
 
 function ProfileEvents({ registered, user }){
 
-  const registrations = registered.map(obj => obj.registeredEvent);
-  const registeredEventIds = registrations.map(registration => registration.eventId)
+  // const registrations = registered.map(obj => obj.registeredEvent);
+  // const registeredEventIds = registrations.map(registration => registration.eventId)
   // need to make fetch for users registered events
 
 

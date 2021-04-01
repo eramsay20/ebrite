@@ -22,7 +22,7 @@ function App() {
     if(isLoaded === false) {
       dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }
-  }, [dispatch])
+  }, [dispatch, isLoaded])
 
   return (
     <>

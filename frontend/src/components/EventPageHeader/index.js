@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import RegistrationFormModal from '../RegistrationFormModal';
 import { dateFormat } from '../Utils/'
@@ -8,7 +8,7 @@ function EventPageHeader({ event }){
   return (
     <>
       <div className={`event-image-container`}>
-        <img className={`event-image-container`} src={event.image}></img>
+        <img alt={`eventpic`} className={`event-image-container`} src={event.image}></img>
       </div>
       <div className={`event-details-container`}>
         <div>

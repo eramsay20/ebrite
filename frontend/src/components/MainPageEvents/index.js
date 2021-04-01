@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getEvents } from '../../store/events'
 import { dateFormat } from '../Utils/'
 
 function MainPageEvents({ categories, events }){
 
   const [category, setCategory] = useState('Free')
-
   const eventsByCategory = events.filter(event => event.Category.category === category)
 
   return (
@@ -16,10 +13,9 @@ function MainPageEvents({ categories, events }){
       <div style={{justifyContent: 'flex-start', paddingLeft: '30px'}} className={`category-bar flex-container`}>
           {categories &&
           categories.map(category => (
-            <>
+            <div key={category} style={{paddingRight: '30px'}}>
               <h3 style={{paddingLeft: '0px'}} className="category" key={category} onClick={() => setCategory(category)}>{category}</h3>
-              <span key={`${category}-span`} style={{paddingRight: '30px'}}></span>
-            </>
+            </div>
           ))}
         </div>
       <div className={`event-card-container flex-container`}>
@@ -27,10 +23,10 @@ function MainPageEvents({ categories, events }){
         eventsByCategory.map(event => {
           const time = dateFormat(event.time);
           return (
-          <div className={`event-card`}>
-            <NavLink className="card-nav-link" key={event.id} to={`/events/${event.id}`}>
+          <div key={event.id} className={`event-card`}>
+            <NavLink className="card-nav-link" to={`/events/${event.id}`}>
               <div className={`event-card-image-container`}>
-                <img className={`event-card-image`} src={event.image}></img>
+                <img alt={'event'} className={`event-card-image`} src={event.image}></img>
               </div>
               <div>
                 <p className={`event-card-title`}>{event.title}</p>
