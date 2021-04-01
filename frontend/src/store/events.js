@@ -1,6 +1,7 @@
+import { csrfFetch } from '../store/csrf';
 
 const LOAD = 'events/LOAD';
-// const LOAD_ONE = 'events/LOAD_ONE';
+const REGISTER = 'events/REGISTER';
 // const LOAD_CATEGORY = 'events/LOAD_CATEGORY';
 
 const load = events => ({
@@ -8,15 +9,11 @@ const load = events => ({
   events,
 });
 
-// const loadOne = event => ({
-//   type: LOAD_ONE,
-//   event,
-// });
+const register = event => ({
+  type: REGISTER,
+  event,
+});
 
-// const loadCategory = category => ({
-//   type: LOAD_CATEGORY,
-//   categories,
-// });
 
 export const getEvents = () => async dispatch => {
   const response = await fetch(`/api/events/`); // check backend get route
@@ -27,14 +24,26 @@ export const getEvents = () => async dispatch => {
   }
 };
 
-// export const getEvent = (id) => async dispatch => {
-//   const response = await fetch(`/api/events/${id}`); // check backend get route
+// getRegistered
 
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(loadOne(data.event));
-//   }
-// };
+// getFavorites
+
+export const registerEvent = (payload) => async dispatch => {
+  const eventId = payload.id;
+  const ticketCount = parseInt(payload.ticketCount, 10);
+  console.log('THUNK: ID, TICKETCOUNT', eventId, ticketCount);
+
+  const response = await csrfFetch(`/api/events/${eventId}/registration`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({ ticketCount }),
+  }); // check backend get route
+
+  if (response.ok) {
+    const event = await response.json();
+    dispatch(register(event));
+  }
+};
 
 
 // const sortEvents = (events) => {
@@ -51,7 +60,8 @@ export const getEvents = () => async dispatch => {
 
 const initialState = {
   eventsList: [],
-  categories: []
+  registered: [],
+  favorites: [],
 };
 
 const eventsReducer = (state = initialState, action) => {
@@ -65,10 +75,14 @@ const eventsReducer = (state = initialState, action) => {
         ...allEvents,
         ...state,
         eventsList: action.events,
-        // eventList: action.events,
       };
     }
-
+    case REGISTER: {
+      return {
+        ...state,
+        registered: [...state.registered, action.event ]
+      };
+    }
     default:
       return state;
   }
