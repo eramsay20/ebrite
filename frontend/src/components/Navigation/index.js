@@ -36,7 +36,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <>  <div style={{display: 'flex', flexDirection: 'flex-start', alignItems: 'center', justifyContent: 'flex-start'}}>
+    <>  <div style={{display: 'flex', flexDirection: 'flex-start', alignItems: 'center', justifyContent: 'flex-start', marginLeft:'30px'}}>
           <NavLink style={{marginRight:'30px'}}exact to="/">
             <img style={{width: '70px'}} src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"></img>
           </NavLink>
