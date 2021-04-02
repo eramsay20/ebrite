@@ -16,6 +16,7 @@ function MainPage(){
 
   // pull out list of events from state
   const events = useSelector(state => state.events.eventsList);
+  const sessionUser = useSelector(state => state.session.user);
 
   // extract category names from events
   const categoryNames = events.map(e => e.Category.category)
@@ -32,7 +33,7 @@ function MainPage(){
   return (
     <>
       <MainPageBanner categories={categories} events={events}/>
-      <MainPageEvents categories={categories} events={events}/>
+      <MainPageEvents user={sessionUser} categories={categories} events={events}/>
     </>
   );
 }

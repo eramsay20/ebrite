@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { favoriteEvent } from '../../store/events';
+import { favoriteEvent, unfavoriteEvent } from '../../store/events';
 
-function EventCard({ event, time }){
+function EventCard({ event, time, user }){
   const FAV_ICON_LINK = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/favorite-icon.png?raw=true`
+  const FAV_ICON_LINK_SELECTED = 'https://github.com/eramsay20/ebrite/blob/master/wiki-resources/favorite-icon_peach.png?raw=true'
 
   const dispatch = useDispatch();
+  const addFavorite = (eventId) => dispatch(favoriteEvent(eventId));
+  const removeFavorite = (eventId) => dispatch(unfavoriteEvent(eventId));
 
-  const addFavorite = (eventId) => {
-    dispatch(favoriteEvent(eventId))
+  const displayFavoriteCb = () => {
+      setFavorite(!favorite)
+      addFavorite({id: event.id})
+  }
+
+   const revertFavoriteCb = () => {
+      setFavorite(!favorite)
+      removeFavorite(event.id)
+  }
+  const favorites = useSelector(state => state.events.favorites);
+  const isFavorite = favorites.filter(fav => fav.id.toString() === event.id.toString()).length > 1
+
+  const [favorite, setFavorite] = useState(isFavorite);
+
+  let favDisplay;
+  if(favorite || isFavorite ){
+    favDisplay = FAV_ICON_LINK_SELECTED;
+  } else {
+    favDisplay = FAV_ICON_LINK;
   }
 
   return (
@@ -24,9 +44,16 @@ function EventCard({ event, time }){
           <p>{time}</p>
         </div>
       </NavLink>
-      <div onClick={() => {addFavorite({id: event.id})}} className={`fav-icon`}>
-        <img src={FAV_ICON_LINK}></img>
-      </div>
+      {user && !favorite &&
+        (<div onClick={displayFavoriteCb} className={`fav-icon`}>
+          <img src={favDisplay}></img>
+        </div>)
+      }
+      {user && favorite &&
+        (<div onClick={revertFavoriteCb} className={`fav-icon`}>
+          <img src={favDisplay}></img>
+        </div>)
+      }
     </div>
   );
 }

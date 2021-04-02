@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DisplayEvents from '../DisplayEvents'
 
-function MainPageEvents({ categories, events }){
+function MainPageEvents({ categories, events, user }){
 
   const [category, setCategory] = useState('Free')
   const eventsByCategory = events.filter(event => event.Category.category === category)
@@ -16,7 +16,7 @@ function MainPageEvents({ categories, events }){
             </div>
           ))}
       </div>
-      <DisplayEvents events={eventsByCategory}/>
+      <DisplayEvents user={user} events={eventsByCategory}/>
     </>
   );
 }
