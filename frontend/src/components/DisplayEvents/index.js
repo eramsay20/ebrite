@@ -8,7 +8,7 @@ function DisplayEvents({ events, user, favorites }){
     <div className={`event-card-container`}>
         { events && events.map(event => {
           const time = dateFormat(event.time);
-          return <EventCard favorites={favorites} user={user} event={event} time={time}/>
+          return <EventCard key={event.id} favorites={favorites} user={user} event={event} time={time}/>
         })}
     </div>
   );

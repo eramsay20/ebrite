@@ -8,7 +8,7 @@ function DisplayUserEvents({ events, remove }){
     <div className={`user-event-card-container`}>
         { events && events.map(event => {
           const time = dateFormat(event.time);
-          return <UserEventCard event={event} time={time} remove={remove}/>
+          return <UserEventCard key={event.id} event={event} time={time} remove={remove}/>
         })}
     </div>
   );

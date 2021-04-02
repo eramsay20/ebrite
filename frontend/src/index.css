@@ -34,9 +34,7 @@ body {
 
 .event-grid-container {
   display: grid;
-  /* background-color: var(--orange); */
   grid-template: 3fr 6fr / 3fr 2fr;
-  /* gap: 5px; */
   height: 80vh;
   width: 100vw;
   grid-template-areas:
@@ -46,9 +44,7 @@ body {
 
 .profile-grid-container {
   display: grid;
-  /* background-color: var(--orange); */
   grid-template: 1fr 1fr / 3fr 7fr;
-  /* gap: 5px; */
   height: 80vh;
   width: 100vw;
   grid-template-areas:
@@ -74,14 +70,12 @@ body {
 }
 
 .profile-events-container {
-  /* background-color: green; */
   display: flex;
   flex-direction: column;
   height: 80vh;
 }
 
 .user-events-container {
-  /* background-color: yellow; */
   display: flex;
   flex-direction: column;
   overflow-y: scroll;

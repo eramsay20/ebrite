@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { dateFormat } from '../Utils/'
+// import { dateFormat } from '../Utils/'
 import { unregisterEvent, unfavoriteEvent } from '../../store/events';
 
 import DisplayUserEvents from '../DisplayUserEvents';

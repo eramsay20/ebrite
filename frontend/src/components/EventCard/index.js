@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { favoriteEvent, unfavoriteEvent } from '../../store/events';
 
@@ -51,12 +51,12 @@ function EventCard({ event, time, user, favorites }){
       </NavLink>
       {user && !favorite &&
         (<div onClick={displayFavoriteCb} className={`fav-icon`}>
-          <img src={favDisplay}></img>
+          <img alt={`fav`} src={favDisplay}></img>
         </div>)
       }
       {user && favorite &&
         (<div onClick={revertFavoriteCb} className={`fav-icon`}>
-          <img src={favDisplay}></img>
+          <img alt={`fav-selected`} src={favDisplay}></img>
         </div>)
       }
     </div>
