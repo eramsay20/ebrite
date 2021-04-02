@@ -25,7 +25,7 @@ function ProfilePage(){
     { sessionUser && (
       <div className='profile-grid-container'>
         <div className='profile-settings-container'>
-          <ProfileSettings user={sessionUser} />
+          <ProfileSettings username={sessionUser.username} email={sessionUser.email} />
         </div>
         <div className='profile-events-container'>
           <ProfileEvents registered={registered} favorites={favorites}/>

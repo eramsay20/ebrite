@@ -30,8 +30,8 @@ export const login = (loginInfo) => async dispatch => {
   })
 
   if(response.ok){
-    const user = await response.json();
-    dispatch(setSessionUser(user));
+    const data = await response.json();
+    dispatch(setSessionUser(data.user));
     return response;
   }
 }

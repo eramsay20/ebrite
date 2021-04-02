@@ -179,6 +179,7 @@ button {
   font-weight: 700;
   padding: .5em 1em;
   margin-top: 20px;
+  transition: background-color 500ms, border 500ms, color 500ms;
 }
 
 .nav-link {
@@ -186,6 +187,7 @@ button {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
 }
 
 .nav-link:hover {
@@ -222,7 +224,8 @@ button:hover {
 .category {
   cursor: pointer;
   font-weight: lighter;
-  color: rgb(165, 160, 160)
+  color: rgb(165, 160, 160);
+  transition: font-size 300ms, border-bottom 300ms, color 300ms;
 }
 
 .category:hover {
@@ -247,6 +250,7 @@ button:hover {
   padding: 0px;
   background-color: white;
   position: relative;
+  transition: box-shadow 500ms;
 }
 
 .event-card-details {
@@ -261,6 +265,7 @@ button:hover {
   right: -20px;
   bottom: 70px;
   cursor: pointer;
+  transition: transform 300ms;
 }
 
 .fav-icon:hover {
@@ -312,7 +317,7 @@ button:hover {
   width: 200px;
   margin: 20px;
   padding: 0px;
-
+  transition: box-shadow 500ms;
   background-color: white;
 }
 

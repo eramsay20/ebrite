@@ -59,7 +59,7 @@ function LoginForm() {
             />
           </label>
           <button type="submit">Log In</button>
-          <button onClick={() => loginAsDemo()} type="submit">Log In As Demo User</button>
+          <button onClick={() => loginAsDemo()}>Log In As Demo User</button>
         </form>
       </div>
     </>

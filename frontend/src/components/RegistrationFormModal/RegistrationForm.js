@@ -31,7 +31,7 @@ function RegistrationForm({event}) {
   useEffect(() => {
     let price = event.ticketPrice;
     let tickets = ticketCount;
-    let cost = price * tickets;
+    let cost = Number(price * tickets).toFixed(2);
     setTotalCost(cost);
   }, [ticketCount, event.ticketPrice])
   let orderSummary = `Order Total: (${ticketCount}) x ${event.ticketPrice} = $${totalCost}`
