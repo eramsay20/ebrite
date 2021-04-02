@@ -5,13 +5,16 @@ function ProfileSettings({ user }){
 
   return (
     <>
-          <div>
+          <div className={`profile-image`}>
             <img alt={`img`} className={'event-card-image'} src={'https://github.com/eramsay20/ebrite/blob/master/wiki-resources/event-card-images/eventbrite_image.jpeg?raw=true'}></img>
           </div>
-          <div>
-            <h2 style={{textDecoration: 'underline'}}>User Settings</h2>
-            ADD USER SETTINGS FORM HERE
-            <button> Update Settings</button>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '30px'}}>
+            <h3>Welcome back, {user.username}!</h3>
+            <div>
+              <h4>Username: {user.username}</h4>
+              <h4>Email: {user.email}</h4>
+            </div>
+            {/* <button> Update Settings</button> */}
           </div>
     </>
   );
