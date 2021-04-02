@@ -23,7 +23,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
        <NavLink className="nav-link" to="/profile" style={{ marginLeft: '.5rem' }}>Profile</NavLink>
-       <NavLink onClick={logout} className="nav-link" to="#" style={{ marginLeft: '.5rem' }}>Log Out</NavLink>
+       <NavLink onClick={logout} className="nav-link" to="/" style={{ marginLeft: '.5rem' }}>Log Out</NavLink>
       </>
     );
   } else { // else, render login & signup links instead
