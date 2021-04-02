@@ -1,8 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-
-function ProfileSettings({ user }){
-
+function ProfileSettings(){
+  const user = useSelector(state => state.session.user);
   return (
     <>
           <div className={`profile-image`}>
@@ -14,7 +14,6 @@ function ProfileSettings({ user }){
               <h4>Username: {user.username}</h4>
               <h4>Email: {user.email}</h4>
             </div>
-            {/* <button> Update Settings</button> */}
           </div>
     </>
   );
