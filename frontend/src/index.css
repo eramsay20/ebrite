@@ -256,16 +256,21 @@ button:hover {
   position: relative;
 }
 
+.event-card-details {
+  text-align: justify;
+  padding-left: 10px;
+}
+
 .fav-icon {
-  transform: scale(.5);
+  transform: scale(.45);
   position: absolute;
-  right: -25px;
-  bottom: 75px;
+  right: -20px;
+  bottom: 70px;
   cursor: pointer;
 }
 
 .fav-icon:hover {
-  transform: scale(.6);
+  transform: scale(.55);
 }
 
 .event-card-image-container {
@@ -291,6 +296,7 @@ button:hover {
 .event-card-title {
   color: var(--text);
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 

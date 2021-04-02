@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getEvents  } from '../../store/events';
+import { getEvents, getFavorites  } from '../../store/events';
 import MainPageEvents from '../MainPageEvents';
 import MainPageBanner from '../MainPageBanner';
 import './MainPage.css';
@@ -12,11 +12,13 @@ function MainPage(){
   // load all events into events state
   useEffect(()=>{
     dispatch(getEvents())
+    dispatch(getFavorites())
   }, [dispatch])
 
   // pull out list of events from state
   const events = useSelector(state => state.events.eventsList);
   const sessionUser = useSelector(state => state.session.user);
+  const favorites = useSelector(state => state.events.favorites);
 
   // extract category names from events
   const categoryNames = events.map(e => e.Category.category)
@@ -33,7 +35,7 @@ function MainPage(){
   return (
     <>
       <MainPageBanner categories={categories} events={events}/>
-      <MainPageEvents user={sessionUser} categories={categories} events={events}/>
+      <MainPageEvents favorites={favorites} user={sessionUser} categories={categories} events={events}/>
     </>
   );
 }

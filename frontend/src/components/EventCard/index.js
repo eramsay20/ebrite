@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { favoriteEvent, unfavoriteEvent } from '../../store/events';
 
-function EventCard({ event, time, user }){
+function EventCard({ event, time, user, favorites }){
   const FAV_ICON_LINK = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/favorite-icon.png?raw=true`
   const FAV_ICON_LINK_SELECTED = 'https://github.com/eramsay20/ebrite/blob/master/wiki-resources/favorite-icon_peach.png?raw=true'
 
@@ -21,10 +21,15 @@ function EventCard({ event, time, user }){
       setFavorite(!favorite)
       removeFavorite(event.id)
   }
-  const favorites = useSelector(state => state.events.favorites);
-  const isFavorite = favorites.filter(fav => fav.id.toString() === event.id.toString()).length > 1
 
-  const [favorite, setFavorite] = useState(isFavorite);
+  const [favorite, setFavorite] = useState(false);
+
+  let isFavorite;
+  useEffect(() => {
+    isFavorite = favorites.find(fav => fav.id.toString() === event.id.toString())
+    if(isFavorite) setFavorite(true)
+  }, [favorites])
+
 
   let favDisplay;
   if(favorite || isFavorite ){
@@ -39,7 +44,7 @@ function EventCard({ event, time, user }){
         <div className={`event-card-image-container`}>
           <img alt={'event'} className={`event-card-image`} src={event.image}></img>
         </div>
-        <div>
+        <div className={`event-card-details`}>
           <p className={`event-card-title`}>{event.title}</p>
           <p>{time}</p>
         </div>
