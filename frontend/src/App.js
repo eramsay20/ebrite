@@ -50,7 +50,7 @@ function App() {
             <div className={`footer flex-container`}>
               <Footer />
             </div>
-          </div>
+        </div>
     </>
   );
 }
