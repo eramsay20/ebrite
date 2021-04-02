@@ -7,6 +7,7 @@ module.exports = {
       // demo user 1
       { eventId: 15, userId: 1},
       { eventId: 14, userId: 1},
+      { eventId: 12, userId: 1},
 
       // demo user 2
       { eventId: 13, userId: 2},
