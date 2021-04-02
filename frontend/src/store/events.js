@@ -4,6 +4,7 @@ const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_REGISTERED = 'events/LOAD_REGISTERED';
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
 const REGISTER = 'events/REGISTER';
+const FAVORITE = 'events/FAVORITE';
 const UNREGISTER = 'events/UNREGISTER';
 const UNFAVORITE = 'events/UNFAVORITE';
 
@@ -28,6 +29,11 @@ const register = event => ({
   event,
 });
 
+const favorite = event => ({
+  type: FAVORITE,
+  event,
+});
+
 const unregister = eventId => ({
   type: UNREGISTER,
   eventId,
@@ -37,6 +43,8 @@ const unfavorite = eventId => ({
   type: UNFAVORITE,
   eventId,
 });
+
+/* GET THUNKS */
 
 //GET all events
 export const getEvents = () => async dispatch => {
@@ -69,6 +77,8 @@ export const getFavorites = () => async dispatch => {
 };
 
 
+/* POST THUNKS */
+
 // POST add new registration to Registration table
 export const registerEvent = (payload) => async dispatch => {
   const eventId = payload.id;
@@ -86,6 +96,28 @@ export const registerEvent = (payload) => async dispatch => {
   }
 };
 
+
+
+// POST add new favorite to users favorites
+export const favoriteEvent = (payload) => async dispatch => {
+  const eventId = payload.id;
+  console.log('THUNK EVENTID', eventId);
+
+  const response = await csrfFetch(`/api/events/${eventId}/favorite`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({ eventId }),
+  }); // check backend get route
+
+  if (response.ok) {
+    const event = await response.json();
+    dispatch(favorite(event));
+  }
+};
+
+
+
+/* DELETE THUNKS */
 
 // DELETE registered events
 export const unregisterEvent = (eventId) => async dispatch => {
@@ -111,6 +143,8 @@ export const unfavoriteEvent = (eventId) => async dispatch => {
   }
 };
 
+
+/* EVENT REDUCER */
 
 const initialState = {
   eventsList: [],
@@ -149,6 +183,12 @@ const eventsReducer = (state = initialState, action) => {
       newState = {...state}
       const newRegistered = [...newState.registered, action.event]
       newState.registered = newRegistered;
+      return newState;
+    }
+    case FAVORITE: {
+      newState = {...state}
+      const newFavorites = [...newState.favorites, action.event]
+      newState.favorites = newFavorites;
       return newState;
     }
     case UNREGISTER: {

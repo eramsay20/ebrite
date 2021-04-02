@@ -46,6 +46,20 @@ router.post('/:id/registration', requireAuth, asyncHandler( async(req, res) => {
   res.json(event) //add event obj to array of registered events on front end
 }))
 
+// Favorite an event
+router.post('/:id/favorite', requireAuth, asyncHandler( async(req, res) => {
+  const eventId = req.params.id
+  const userId = req.user.id
+  console.log('FAVORITE POST')
+  const favoriteEvent = await Favorite.create({ eventId, userId })
+  const event = await Event.findByPk(eventId)
+
+  res.json(event) //add event obj to array of favorited events on front end
+}))
+
+
+
+
 
 /* DELETE */
 // Remove user's registration to an event
@@ -59,7 +73,7 @@ router.delete('/:id/registration', requireAuth, asyncHandler( async(req, res) =>
   res.json(eventId)
 }))
 
-// Remove user's registration to an event
+// Remove user's favorite from their favorites list
 router.delete('/:id/favorites', requireAuth, asyncHandler( async(req, res) => {
   const eventId = req.params.id
   const userId = req.user.id
