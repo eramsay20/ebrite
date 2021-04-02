@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import LoginFormModal from '../LoginFormModal'
+import SignupFormModal from '../SignupFormModal'
 import * as sessionActions from '../../store/session';
 
 
@@ -30,7 +31,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink className="nav-link" to="/signup" style={{ marginLeft: '.5rem' }}> Sign Up</NavLink>
+        <SignupFormModal />
       </>
     );
   }

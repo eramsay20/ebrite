@@ -3,8 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
 import Navigation from "./components/Navigation";
-// import LoginFormPage from './components/LoginFormPage';
-import SignupFormPage from './components/SignupFormPage';
 import MainPage from "./components/MainPage";
 import EventPage from "./components/EventPage";
 import ProfilePage from "./components/ProfilePage";
@@ -45,11 +43,6 @@ function App() {
           <Route path='/profile'>
             <div className='body'>
               <ProfilePage />
-            </div>
-          </Route>
-          <Route path='/signup'>
-            <div className='body'>
-              <SignupFormPage />
             </div>
           </Route>
         </Switch>

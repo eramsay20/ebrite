@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 
-function SignupFormPage() {
+function SignupForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
   // form input states
   const [username, setUsername] = useState('');
@@ -14,9 +12,6 @@ function SignupFormPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
-
-  // if already logged in, redirect home
-  if (sessionUser) <Redirect to="/" />
 
   // form submit handler
   const handleSubmit = (e) => {
@@ -34,7 +29,7 @@ function SignupFormPage() {
   }
 
   return (
-    <div className={`flex-container form-container`}>
+    <div className={`flex-container`}>
       <form onSubmit={handleSubmit}>
         <ul>
           { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
@@ -49,7 +44,7 @@ function SignupFormPage() {
           />
         </label>
         <label>
-          Username or Email
+          Email
           <input
             type="text"
             value={email}
@@ -75,10 +70,10 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;
