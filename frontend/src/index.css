@@ -255,7 +255,8 @@ button:hover {
 
 .event-card-details {
   text-align: left;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-left: 25px;
   padding-right: 10px;
 }
 
@@ -310,7 +311,7 @@ button:hover {
 
 .user-event-card {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   position: relative;
   height: auto;
@@ -321,9 +322,15 @@ button:hover {
   background-color: white;
 }
 
+.user-event-card-details {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+}
+
 .remove-btn {
-  position: absolute;
-  bottom: 5px;
+  font-size: 14px;
 }
 
 .user-event-card-image-container {
@@ -331,7 +338,7 @@ button:hover {
   background-color: var(--orange);
   object-fit: cover;
   width: 100%;
-  height: 110px;
+  height: 100px;
 }
 
 .user-event-card:hover {

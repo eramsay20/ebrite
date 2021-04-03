@@ -9,14 +9,13 @@ function UserEventCard({ event, time, remove, deleteText }){
           <div className={`user-event-card-image-container`}>
             <img alt={'event'} className={`event-card-image`} src={event.image}></img>
           </div>
-          <div className={`event-card-details`}>
+          <div className={`user-event-card-details`}>
             <p className={`event-card-title`}>{event.title}</p>
             <p>{time}</p>
           </div>
         </NavLink>
-        <NavLink className="nav-link" to="#" onClick={() => {remove(event.id)}}>{deleteText}</NavLink>
+        <NavLink className="nav-link remove-btn" to="#" onClick={() => {remove(event.id)}}>{deleteText}</NavLink>
       </div>
-        {/* <button className={`remove-btn`} onClick={() => {remove(event.id)}}>Remove</button> */}
     </>
   );
 }
