@@ -11,7 +11,6 @@ const router = express.Router();
 // Restore session for user
 router.get('/', restoreUser, (req, res) => {
   const { user } = req; // pull user out of req (set by restoreUser mw)
-  // console.log('USER >>>>>>>>>>>>>>>>>', user)
   if(user) {
     return res.json({ user: user.toSafeObject() }); // return user if exists
   } else {

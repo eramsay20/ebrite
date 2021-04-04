@@ -60,7 +60,6 @@ router.post('/:id/favorite', requireAuth, asyncHandler( async(req, res) => {
 // Search for an event
 router.post('/search', asyncHandler( async(req, res) => {
   const { query } = req.body
-  console.log('SEARCH POST HIT, >>> QUERY ==', query);
 
   const results = await Event.findAll({
     where: {
