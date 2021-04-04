@@ -17,8 +17,6 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   color: var(--text);
   text-align: center;
-  /* margin-left: 20px; */
-  /* margin-right: 20px; */
   font-weight: 500;
 }
 
@@ -366,11 +364,21 @@ button:hover {
 }
 
 form.search-bar {
-  background-color: var(--shadow);
-  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--background);
+  height: 50px;
+  width: 400px;
   padding: 0px;
+  margin: 0px;
   text-align: center;
   border-radius: 5px;
+}
+
+.search-image{
+  transform: scale(0.4);
+  padding: 0px;
+  margin: 0px;
 }
 
 input.search-bar {
@@ -378,14 +386,13 @@ input.search-bar {
   border-radius: 3px;
   border-bottom: 2px solid var(--purple);
   text-align: center;
-
-  display: block;
   box-sizing: border-box;
   background-color: white;
-
+  height: 20px;
   width: 100%;
-  padding: 10px;
+  padding-top: 10px;
   outline: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 input.search-bar:focus {
