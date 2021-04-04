@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
 import EventPage from "./components/EventPage";
+import SearchPage from "./components/SearchPage";
 import ProfilePage from "./components/ProfilePage";
 import Footer from "./components/Footer";
 
@@ -33,6 +34,11 @@ function App() {
           <Route exact path='/'>
             <div className='body'>
               <MainPage />
+            </div>
+          </Route>
+           <Route exact path='/events/search'>
+            <div className='body'>
+              <SearchPage />
             </div>
           </Route>
           <Route path='/events/:eventId'>

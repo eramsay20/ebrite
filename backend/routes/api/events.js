@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const asyncHandler = require('express-async-handler');
+const { Op } = require("sequelize");
 
 const { Event, Registration, Category, Favorite, User } = require('../../db/models');
 const { restoreUser, requireAuth } = require('../../utils/auth');
@@ -26,7 +27,7 @@ router.get('/registrations', restoreUser, asyncHandler( async(req, res) => {
 // Load users favorite events
 router.get('/favorites', restoreUser, asyncHandler( async(req, res) => {
   const { user } = req
-  const userJoinData = await User.findByPk(1, { include: Event })
+  const userJoinData = await User.findByPk(user.id, { include: Event })
   const favorites = userJoinData.Events
   res.json(favorites)
 }))
@@ -50,11 +51,26 @@ router.post('/:id/registration', requireAuth, asyncHandler( async(req, res) => {
 router.post('/:id/favorite', requireAuth, asyncHandler( async(req, res) => {
   const eventId = req.params.id
   const userId = req.user.id
-  console.log('FAVORITE POST')
   const favoriteEvent = await Favorite.create({ eventId, userId })
   const event = await Event.findByPk(eventId)
 
   res.json(event) //add event obj to array of favorited events on front end
+}))
+
+// Search for an event
+router.post('/search', asyncHandler( async(req, res) => {
+  const { query } = req.body
+  console.log('SEARCH POST HIT, >>> QUERY ==', query);
+
+  const results = await Event.findAll({
+    where: {
+        title: {
+          [Op.iLike] : `%${query}%`
+        }
+    }
+  });
+
+  res.json(results)
 }))
 
 

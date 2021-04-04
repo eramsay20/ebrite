@@ -3,6 +3,7 @@ import { csrfFetch } from '../store/csrf';
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_REGISTERED = 'events/LOAD_REGISTERED';
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
+const LOAD_SEARCH_RESULTS = 'events/LOAD_SEARCH_RESULTS';
 const REGISTER = 'events/REGISTER';
 const FAVORITE = 'events/FAVORITE';
 const UNREGISTER = 'events/UNREGISTER';
@@ -42,6 +43,11 @@ const unregister = eventId => ({
 const unfavorite = eventId => ({
   type: UNFAVORITE,
   eventId,
+});
+
+const loadSearchResults = results => ({
+  type: LOAD_SEARCH_RESULTS,
+  results,
 });
 
 /* GET THUNKS */
@@ -116,6 +122,23 @@ export const favoriteEvent = (payload) => async dispatch => {
 };
 
 
+// POST search for events
+export const searchEvents = (query) => async dispatch => {
+  console.log('THUNK SEARCH EVENT, QUERY >>> ', query);
+
+  const response = await csrfFetch(`/api/events/search`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({query}),
+  }); // check backend get route
+
+  if (response.ok) {
+    const results = await response.json();
+    dispatch(loadSearchResults(results));
+  }
+};
+
+
 
 /* DELETE THUNKS */
 
@@ -144,12 +167,21 @@ export const unfavoriteEvent = (eventId) => async dispatch => {
 };
 
 
+/* HELPER FUNCTIONS */
+
+// used to reset search result state after navigating to different pages
+const resetSearchResults = () => async dispatch => {
+  dispatch(loadSearchResults([]));
+}
+
+
 /* EVENT REDUCER */
 
 const initialState = {
   eventsList: [],
   registered: [],
   favorites: [],
+  searchResults: [],
 };
 
 const eventsReducer = (state = initialState, action) => {
@@ -177,6 +209,12 @@ const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: action.favorites
+      };
+    }
+    case LOAD_SEARCH_RESULTS: {
+      return {
+        ...state,
+        searchResults: action.results
       };
     }
     case REGISTER: {
@@ -217,6 +255,3 @@ const eventsReducer = (state = initialState, action) => {
 }
 
 export default eventsReducer;
-
-// new State = {}
-//

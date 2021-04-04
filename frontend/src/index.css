@@ -164,7 +164,7 @@ input {
   background-color: var(--background);
 
   width: 100%;
-  margin: 10px 0px 30px 0px;
+  margin: 15px 0px 20px 0px;
   padding: 10px;
   outline: 0;
 }
@@ -350,7 +350,8 @@ button:hover {
 .search-bar {
   background-color: white;
   font-size: 12px;
-  padding: 10px 200px 8px 200px;
+  /* padding: 10px 200px 8px 200px; */
+  width: 450px
 }
 
 /* OTHER STYLINGS */
@@ -362,4 +363,31 @@ button:hover {
 
 .content {
   text-align: 'justify';
+}
+
+form.search-bar {
+  background-color: var(--shadow);
+  width: 300px;
+  padding: 0px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+input.search-bar {
+  border: 0;
+  border-radius: 3px;
+  border-bottom: 2px solid var(--purple);
+  text-align: center;
+
+  display: block;
+  box-sizing: border-box;
+  background-color: white;
+
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+}
+
+input.search-bar:focus {
+  border-bottom-color: var(--orange);
 }

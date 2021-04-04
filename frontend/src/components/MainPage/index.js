@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getEvents, getFavorites  } from '../../store/events';
 import MainPageEvents from '../MainPageEvents';
 import MainPageBanner from '../MainPageBanner';
-import './MainPage.css';
+
 
 function MainPage(){
   const dispatch = useDispatch();

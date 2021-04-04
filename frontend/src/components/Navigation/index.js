@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal'
+import SearchForm from '../SearchForm'
 import * as sessionActions from '../../store/session';
 
 
@@ -44,7 +45,7 @@ function Navigation({ isLoaded }){
           <NavLink style={{marginRight:'100px'}} exact to="/">
             <img alt={`logo`} style={{width: '70px'}} src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"></img>
           </NavLink>
-          <div className={`search-bar`}>Search events</div>
+          <SearchForm />
         </div>
         <div style={{display: 'flex', flexDirection: 'flex-end', alignItems: 'center'}}>
           {isLoaded && sessionLinks}
