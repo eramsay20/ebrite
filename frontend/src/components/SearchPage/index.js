@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getEvents, getFavorites, searchEvents  } from '../../store/events';
+import { getEvents, getFavorites } from '../../store/events';
 import DisplayEvents from '../DisplayEvents'
 
 function SearchPage(){
@@ -14,7 +14,6 @@ function SearchPage(){
   }, [dispatch])
 
   // pull out list of events from state
-  const events = useSelector(state => state.events.eventsList);
   const sessionUser = useSelector(state => state.session.user);
   const favorites = useSelector(state => state.events.favorites);
   const searchResults = useSelector(state => state.events.searchResults);

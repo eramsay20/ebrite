@@ -6,7 +6,7 @@ import EventPageHeader from '../EventPageHeader';
 import EventPageBody from '../EventPageBody';
 
 function EventPage(){
-  const { eventId } = useParams() // grab event id from route that redirected to this event
+  const { eventId } = useParams()
   const event = useSelector(state => state.events[eventId]);
 
   return (

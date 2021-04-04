@@ -3,11 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { searchEvents } from '../../store/events';
 
-import * as sessionActions from '../../store/session';
-
 function SearchForm() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const SEARCH = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/search-icon.png?raw=true`
 
   // form input states
   const [query, setQuery] = useState('');
@@ -19,12 +18,10 @@ function SearchForm() {
     history.push('/events/search')
   }
 
-  const SEARCH = `https://github.com/eramsay20/ebrite/blob/master/wiki-resources/search-icon.png?raw=true`
-
   return (
     <div>
       <form className={`search-bar`} onSubmit={handleSubmit}>
-      <img className={`search-image`} src={SEARCH}></img>
+      <img className={`search-image`} alt={`mag-glass`} src={SEARCH}></img>
           <input
             className={`search-bar`}
             type="text"

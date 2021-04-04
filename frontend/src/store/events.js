@@ -1,5 +1,7 @@
 import { csrfFetch } from '../store/csrf';
 
+/* ACTION VERBS */
+
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_REGISTERED = 'events/LOAD_REGISTERED';
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
@@ -9,6 +11,7 @@ const FAVORITE = 'events/FAVORITE';
 const UNREGISTER = 'events/UNREGISTER';
 const UNFAVORITE = 'events/UNFAVORITE';
 
+/* ACTION CREATORS */
 
 const loadEvents = events => ({
   type: LOAD_EVENTS,
@@ -94,15 +97,13 @@ export const registerEvent = (payload) => async dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify({ ticketCount }),
-  }); // check backend get route
+  });
 
   if (response.ok) {
     const event = await response.json();
     dispatch(register(event));
   }
 };
-
-
 
 // POST add new favorite to users favorites
 export const favoriteEvent = (payload) => async dispatch => {
@@ -113,7 +114,7 @@ export const favoriteEvent = (payload) => async dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify({ eventId }),
-  }); // check backend get route
+  });
 
   if (response.ok) {
     const event = await response.json();
@@ -130,7 +131,7 @@ export const searchEvents = (query) => async dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify({query}),
-  }); // check backend get route
+  });
 
   if (response.ok) {
     const results = await response.json();
@@ -165,14 +166,6 @@ export const unfavoriteEvent = (eventId) => async dispatch => {
     dispatch(unfavorite(unfavoriteId));
   }
 };
-
-
-/* HELPER FUNCTIONS */
-
-// used to reset search result state after navigating to different pages
-const resetSearchResults = () => async dispatch => {
-  dispatch(loadSearchResults([]));
-}
 
 
 /* EVENT REDUCER */

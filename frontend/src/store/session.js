@@ -17,7 +17,6 @@ const removeSessionUser = () => ({
 })
 
 
-
 // Thunks -------------------
 export const login = (loginInfo) => async dispatch => {
   const { credential, password } = loginInfo;
