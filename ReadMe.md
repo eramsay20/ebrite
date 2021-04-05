@@ -30,12 +30,12 @@ Since all the rendered event cards are clickable, I also made an Event page that
 
 ![Main](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/event-page.png?raw=true)
 
-### Event Registration Modal
+### Event Registration Modal (MVP #3)
 I initially planned on having a separate registration form page for when user's click "Register" from the event page, but the user interface was so simplistic (only selecting a ticket count and confirming the registration fee) that I decided to make it into a modal instead since I had time. 
 
 ![Registration](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/event-reg-modal.png?raw=true)
 
-### Favorite Events
+### Favorite Events (MVP #4)
 One of the trickier features to implement, both from a CSS perspective and a functionality perspective, was the action of favoriting an event when logged in. For this I had to create two custom images to display depending on whether a card was selected as a favorite. I then created two callbacks to handle click events: one to fire an 'addFavorite' thunk when clicked, an other to fire a 'removeFavorite' thunk when clicked again after already being favorited (each with their own respective action creators, thunks, backend routes, and reducer handlers). I would also have to update the users favorite events state and rerender in the display on any changes such that whenever a user navigates back to the home page they can see which events they've already favorited when browsing.
 
 ![Favorites](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/favoriting-events.png?raw=true)
@@ -44,12 +44,12 @@ One of the trickier features to implement, both from a CSS perspective and a fun
 
 ![favorite-code-2](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite-code-snippets/frontend/event-card-bottom-favorite-logic.png?raw=true)
 
-### User Profile
+### User Profile 
 After registering or favoriting events, I needed a place to showcase the events a user engaged with to satisfy the 'Bookmark' MVP requirement. I chose to house these on the user's profile page, which is split into a settings section on the left, and an events section on the right using a custom grid layout. I also had to make new components for user-specific event cards displayed in the profile page in order to appropriately scale them to fit the container and add buttons to easily cancel registration or remove them from favorites. 
 
 ![Main](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/profile.png?raw=true)
 
-### Search Bar
+### Search Bar (BONUS #5)
 Lastly, as a bonus feature, I opted to make the search bar placeholder functional and render a Results page with filtered event cards whose titles match the search query string. Images and code below. 
 
 ![Search](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/search-results.png?raw=true)
