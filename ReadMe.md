@@ -10,7 +10,17 @@ Learn more about this project by visiting the wiki page, [here!](https://github.
 
 ## Project Overview
 
-The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. Fortunately, I was able to implement all 4 core MVPs, as well as an addition bonus feature, the search bar. 
+The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. Fortunately, I was able to implement all 4 core MVPs, as well as an addition bonus feature, the search bar. The MVPs and Stretch Goals I was able to meet are as follows:
+
+### Core
+- Events - display clickable event cards with summary info
+- Categories - have multiple categories to choose from
+- Registration (tickets) - ability to register for an event
+- Bookmarks - allow users to save bookmarks/favorites events they are interested in
+
+### Bonus/Stretch
+- Search Functionality
+- Refactor all forms (login, signup, event registration) into popup modals
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
