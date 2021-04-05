@@ -1,7 +1,6 @@
 ![banner](https://github.com/eramsay20/eBrite/blob/master/wiki-resources/eBrite-banner-1.png?raw=true)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## Project Overview
 
