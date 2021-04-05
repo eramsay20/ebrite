@@ -57,7 +57,7 @@ const loadSearchResults = results => ({
 
 //GET all events
 export const getEvents = () => async dispatch => {
-  const response = await fetch(`/api/events/`); // check backend get route
+  const response = await fetch(`/api/events/`);
 
   if (response.ok) {
     const data = await response.json();
@@ -67,7 +67,7 @@ export const getEvents = () => async dispatch => {
 
 // GET registered events
 export const getRegistered = () => async dispatch => {
-  const response = await fetch(`/api/events/registrations`); // check backend get route
+  const response = await fetch(`/api/events/registrations`);
 
   if (response.ok) {
     const registered = await response.json();
@@ -77,7 +77,7 @@ export const getRegistered = () => async dispatch => {
 
 // GET favorite events
 export const getFavorites = () => async dispatch => {
-  const response = await fetch(`/api/events/favorites`); // check backend get route
+  const response = await fetch(`/api/events/favorites`);
 
   if (response.ok) {
     const favorites = await response.json();
@@ -87,7 +87,6 @@ export const getFavorites = () => async dispatch => {
 
 
 /* POST THUNKS */
-
 // POST add new registration to Registration table
 export const registerEvent = (payload) => async dispatch => {
   const eventId = payload.id;
@@ -108,7 +107,6 @@ export const registerEvent = (payload) => async dispatch => {
 // POST add new favorite to users favorites
 export const favoriteEvent = (payload) => async dispatch => {
   const eventId = payload.id;
-  console.log('THUNK EVENTID', eventId);
 
   const response = await csrfFetch(`/api/events/${eventId}/favorite`, {
     method: 'POST',
@@ -125,8 +123,6 @@ export const favoriteEvent = (payload) => async dispatch => {
 
 // POST search for events
 export const searchEvents = (query) => async dispatch => {
-  console.log('THUNK SEARCH EVENT, QUERY >>> ', query);
-
   const response = await csrfFetch(`/api/events/search`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
@@ -224,7 +220,6 @@ const eventsReducer = (state = initialState, action) => {
     }
     case UNREGISTER: {
       newState = {...state}; // copy state into new obj
-      // delete newState[action.eventId]; // delete unregistered event from state
 
       // update registered list by filtering for all BUT the unregistered event id
       const newRegistered = newState.registered.filter(event => event.id.toString() !== action.eventId.toString());
@@ -234,7 +229,6 @@ const eventsReducer = (state = initialState, action) => {
     }
     case UNFAVORITE: {
       newState = {...state}; // copy state into new obj
-      // delete newState[action.eventId]; // delete unregistered event from state
 
       // update registered list by filtering for all BUT the unregistered event id
       const newFavorites = newState.favorites.filter(event => event.id.toString() !== action.eventId.toString());
