@@ -5,7 +5,11 @@
 
 ## Project Overview
 
-***e.brite*** is a clone of [eventbrite](https://www.eventbrite.com/) that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities. The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. The MVP requirements and stretch goals I was able to meet in my weeklong time allotment are as follows:
+***e.brite*** is a clone of [eventbrite](https://www.eventbrite.com/) that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities. The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The MVP requirements and stretch goals I was able to meet in my weeklong time allotment are as follows:
 
 ### Core
 - Events - display clickable event cards with summary info
