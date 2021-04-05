@@ -35,9 +35,9 @@ I initially planned on having a separate registration form page for when user's 
 
 ![Registration](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/event-reg-modal.png?raw=true)
 
+### Favorite Events
 One of the trickier features to implement, both from a CSS perspective and a functionality perspective, was the action of favoriting an event when logged in. For this I had to create two custom images to display depending on whether a card was selected as a favorite. I then created two callbacks to handle click events: one to fire an 'addFavorite' thunk when clicked, an other to fire a 'removeFavorite' thunk when clicked again after already being favorited (each with their own respective action creators, thunks, backend routes, and reducer handlers). I would also have to update the users favorite events state and rerender in the display on any changes such that whenever a user navigates back to the home page they can see which events they've already favorited when browsing.
 
-### Favorite Events
 ![Favorites](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/favoriting-events.png?raw=true)
 
 ![favorite-code-1](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite-code-snippets/frontend/event-card-top-favorite-logic.png?raw=true)
