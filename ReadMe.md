@@ -1,16 +1,11 @@
 ![banner](https://github.com/eramsay20/eBrite/blob/master/wiki-resources/eBrite-banner-1.png?raw=true)
 
-## Welcome to e.brite!
-***e.brite*** is a clone of [eventbrite](https://www.eventbrite.com/) that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities.
-
-Learn more about this project by visiting the wiki page, [here!](https://github.com/eramsay20/ebrite/wiki)
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## Project Overview
 
-The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. Fortunately, I was able to implement all 4 core MVPs, as well as an addition bonus feature, the search bar. The MVPs and Stretch Goals I was able to meet are as follows:
+***e.brite*** is a clone of [eventbrite](https://www.eventbrite.com/) that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities. The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. The MVP requirements and stretch goals I was able to meet in my weeklong time allotment are as follows:
 
 ### Core
 - Events - display clickable event cards with summary info
@@ -79,3 +74,6 @@ Lastly, as a bonus feature, I opted to make the search bar placeholder functiona
 ![Search](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/eventbrite-comparison/search-results.png?raw=true)
 ![Search-Code](https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite-code-snippets/frontend/search-frontend.png?raw=true)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Learn more about this project by visiting the wiki page, [here!](https://github.com/eramsay20/ebrite/wiki)
