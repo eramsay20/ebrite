@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-***e.brite*** is a clone of [eventbrite](https://www.eventbrite.com/) that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities. The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. 
+***[e.brite](https://ebrite-app.herokuapp.com/)*** is a clone of eventbrite.com that focuses on connecting people through virtual, online events. Users come to the site to find free and paid virtual events including concerts, online gaming or networking activities. The goal of this week long, full-stack project was to have 3 fully functional core MVP features finished. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
