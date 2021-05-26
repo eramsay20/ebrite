@@ -36,28 +36,28 @@ function LoginForm() {
   return (
     <>
       <div className={`flex-container`}>
-        <form onSubmit={handleSubmit}>
+        <form className='modal-form' onSubmit={handleSubmit}>
           <ul>
             { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
           </ul>
           <label>
             Username or Email
+          </label>
             <input
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
               required
             />
-          </label>
           <label>
             Password
+          </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </label>
           <button type="submit">Log In</button>
           <button onClick={() => loginAsDemo()}>Log In As Demo User</button>
         </form>

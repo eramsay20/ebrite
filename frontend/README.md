@@ -8,6 +8,20 @@ A no-frills template from which to create React + Redux applications with
 npx create-react-app my-app --template @appacademy/react-redux-v17 --use-npm
 ```
 
+## Cloning Step
+
+1. cd into frontend, npm install
+2. cd into backend, npm install
+3. add .env file like .env.example to backend folder
+4. from command line, enter psql and create user and database (example sql commands below)
+    CREATE USER user WITH PASSWORD 'password' CREATEDB;
+    CREATE DATABASE database WITH OWNER user;
+5. From backend terminal, run:
+    npx dotenv sequelize db:migrate // creates the local development env tables
+    npx dotenv sequelize db:seed:all // seed local development tables
+6. From backend terminal, run 'npm start'
+7. From frontend terminal, run 'npm start'
+
 ## Available Scripts
 
 In the project directory, you can run:

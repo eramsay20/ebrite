@@ -20,12 +20,13 @@ function SearchForm() {
 
   return (
     <div>
-      <form className={`search-bar`} onSubmit={handleSubmit}>
-      <img className={`search-image`} alt={`mag-glass`} src={SEARCH}></img>
+      <form className={`search-bar-form`} onSubmit={handleSubmit}>
+          <img className={`search-image`} alt={`mag-glass`} src={SEARCH}></img>
           <input
-            className={`search-bar`}
+            className={`search-bar-input`}
             type="text"
             value={query}
+            placeholder='Search events'
             onChange={(e) => setQuery(e.target.value)}
             required
           />

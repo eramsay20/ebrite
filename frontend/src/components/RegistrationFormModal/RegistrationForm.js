@@ -55,19 +55,19 @@ function RegistrationForm({event}) {
         )}
       </div>
       <div className={`flex-container`}>
-        <form onSubmit={handleSubmit}>
+        <form className='modal-form' onSubmit={handleSubmit}>
           <ul>
             { errors && errors.map((error, idx) => <li key={idx} style={{color: 'red'}}>{error}</li>)}
           </ul>
           <label>
             How many tickets would you like to purchase?
+          </label>
             <input
               type="number"
               value={ticketCount}
               onChange={(e) => setTicketCount(e.target.value)}
               required
             />
-          </label>
           <button type="submit">{registerMessage}</button>
         </form>
       </div>
