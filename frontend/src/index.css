@@ -225,13 +225,15 @@ button:hover {
   cursor: pointer;
   font-weight: lighter;
   color: rgb(165, 160, 160);
-  transition: font-size 300ms, border-bottom 200ms, color 300ms;
+  transition: font-size 500ms, border-bottom 500ms, color 500ms;
+  padding-bottom: 5px;
+  font-size: 14px;
 }
 
 .category:hover {
-  font-size: 20px;
+  font-size: 15px;
   color: var(--blue);
-  border-bottom: 2px solid var(--blue);
+  border-bottom: 1px solid var(--blue);
 }
 
 /* EVENT CARD */
@@ -244,33 +246,33 @@ button:hover {
 .event-card {
   display: flex;
   justify-content: center;
-  height: 270px;
-  width: 300px;
+  height: 250px;
+  width: 230px;
   margin: 20px;
   padding: 0px;
   background-color: white;
   position: relative;
   transition: box-shadow 500ms;
+  box-shadow: 1px 1px 10px 1px var(--shadow);
 }
 
 .event-card-details {
   text-align: left;
-  padding-top: 10px;
-  padding-left: 25px;
-  padding-right: 10px;
+  padding: 10px 15px 0px 15px;
+  font-size: 14px;
 }
 
 .fav-icon {
-  transform: scale(.45);
+  transform: scale(.35);
   position: absolute;
-  right: -20px;
-  bottom: 70px;
+  right: -25px;
+  bottom: 97px;
   cursor: pointer;
   transition: transform 300ms;
 }
 
 .fav-icon:hover {
-  transform: scale(.55);
+  transform: scale(.40);
 }
 
 .event-card-image-container {
@@ -278,7 +280,7 @@ button:hover {
   background-color: var(--orange);
   object-fit: cover;
   width: 100%;
-  height: 160px;
+  height: 110px;
 }
 
 .event-card-image {
@@ -290,7 +292,7 @@ button:hover {
 }
 
 .event-card:hover {
-  box-shadow: 3px 3px 15px 5px var(--shadow);
+  box-shadow: 5px 5px 20px 10px var(--shadow);
 }
 
 .event-card-title {
