@@ -33,10 +33,10 @@ function MainPage(){
 
   // pass categories and events to children components
   return (
-    <>
+    <div className={`body`}>
       <MainPageBanner categories={categories} events={events}/>
       <MainPageEvents favorites={favorites} user={sessionUser} categories={categories} events={events}/>
-    </>
+    </div>
   );
 }
 

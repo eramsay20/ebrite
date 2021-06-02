@@ -1,6 +1,6 @@
 {
-  "short_name": "React Template",
-  "name": "Create React App Template",
+  "short_name": "ebrite",
+  "name": "ebrite - Online Events",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

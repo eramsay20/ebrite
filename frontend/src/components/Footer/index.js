@@ -5,11 +5,9 @@ function Footer(){
   const GITHUB_PROFILE_PATH='https://github.com/eramsay20'
 
   return (
-    <nav>
-      <div>
+    <nav className={`footer flex-container`}>
         <a className="nav-link" href={GITHUB_PROFILE_PATH} style={{ marginLeft: '20px' }}>Github Profile</a>
         <a className="nav-link" href={WIKI_PATH} style={{ marginLeft: '20px' }}>e.brite Wiki</a>
-      </div>
     </nav>
   );
 }
