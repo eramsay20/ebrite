@@ -9,11 +9,9 @@ import * as sessionActions from '../../store/session';
 
 
 function Navigation({ isLoaded }){
+  const logo = "https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
-  // declare variable to store which links to render
-  let sessionLinks;
 
   // log out button functionality
   const logout = (e) => {
@@ -21,13 +19,13 @@ function Navigation({ isLoaded }){
     dispatch(sessionActions.logout());
   };
 
+  // declare variable to store which links to render
+  let sessionLinks;
   if (sessionUser) { // if logged in, only show Profile button
     sessionLinks = (
       <>
         <img alt={`logo`} style={{width: '18px', marginRight: '-5px'}} src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/user-profile-icon.png?raw=true"></img>
-       <NavLink className="nav-link" to="/profile" style={{ marginLeft: '.5rem' }}>
-        Profile
-       </NavLink>
+       <NavLink className="nav-link" to="/profile" style={{ marginLeft: '.5rem' }}> Profile </NavLink>
        <NavLink onClick={logout} className="nav-link" to="/" style={{ marginLeft: '.5rem' }}>Log Out</NavLink>
       </>
     );
@@ -41,16 +39,19 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <>  <div style={{display: 'flex', flexDirection: 'flex-start', alignItems: 'center', justifyContent: 'flex-start', marginLeft:'30px'}}>
-          <NavLink style={{marginRight:'100px'}} exact to="/">
-            <img alt={`logo`} style={{width: '70px'}} src="https://github.com/eramsay20/ebrite/blob/master/wiki-resources/ebrite_logo_trans.png?raw=true"></img>
-          </NavLink>
-          <SearchForm />
+    <div className={`nav`}>  
+        <div className={`nav-bar-logo`}>
+            <NavLink exact to="/"> 
+              <img alt={`logo`} className='logo' src={`${logo}`}></img> 
+            </NavLink>
         </div>
-        <div style={{display: 'flex', flexDirection: 'flex-end', alignItems: 'center'}}>
-          {isLoaded && sessionLinks}
+        <div className={`nav-bar-search`}>
+            <SearchForm />
         </div>
-    </>
+        <div className={`nav-bar-links`}>
+            {isLoaded && sessionLinks}
+        </div>
+    </div>
   );
 }
 

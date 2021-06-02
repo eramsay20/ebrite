@@ -7,9 +7,9 @@ function MainPageEvents({ categories, events, user, favorites }){
   const eventsByCategory = events.filter(event => event.Category.category === category)
 
   return (
-    <>
-      <h2 style={{display: 'flex', justifyContent: 'flex-start', paddingLeft: '30px', fontWeight: '500px'}}> Popular in <span style={{paddingRight: '10px'}}></span><span style={{color: 'var(--blue)', borderBottom: '2px solid var(--shadow)', paddingRight: '10px', paddingLeft: '10px' }}>{category}</span> </h2>
-      <div style={{justifyContent: 'flex-start', paddingLeft: '30px'}} className={`category-bar flex-container`}>
+    <div className=''>
+      <h2 style={{display: 'flex', fontSize:'20px', justifyContent: 'flex-start', paddingLeft: '20px', fontWeight: '500px', margin: '0px', marginTop:'20px'}}> Popular in <span style={{paddingRight: '10px'}}></span><span style={{color: 'var(--blue)', borderBottom: '2px solid var(--shadow)', paddingRight: '5px', paddingLeft: '5px' }}>{category}</span> </h2>
+      <div style={{justifyContent: 'flex-start', paddingLeft: '20px'}} className={`category-bar flex-container`}>
           { categories && categories.map(category => (
             <div key={category} style={{paddingRight: '30px'}}>
               <h3 className="category" onClick={() => setCategory(category)}>{category}</h3>
@@ -17,7 +17,7 @@ function MainPageEvents({ categories, events, user, favorites }){
           ))}
       </div>
       <DisplayEvents favorites={favorites} user={user} events={eventsByCategory}/>
-    </>
+    </div>
   );
 }
 

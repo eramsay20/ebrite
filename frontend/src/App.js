@@ -25,15 +25,13 @@ function App() {
 
   return (
     <>
-        <div className={`app-grid-container`}>
-          <div className={`header flex-container`}>
-            <Navigation isLoaded={isLoaded} />
-          </div>
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <div className='body'>
+            <div className={`app-grid-container`}>
+              <Navigation isLoaded={isLoaded} />
               <MainPage />
+              <Footer />
             </div>
           </Route>
            <Route exact path='/events/search'>
@@ -53,10 +51,6 @@ function App() {
           </Route>
         </Switch>
       )}
-            <div className={`footer flex-container`}>
-              <Footer />
-            </div>
-        </div>
     </>
   );
 }
