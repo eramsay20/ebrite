@@ -40,14 +40,13 @@ function Navigation({ isLoaded }){
 
   return (
     <div className={`nav`}>  
-        <div className={`nav-bar-logo`}>
+        <div className={`nav-bar-fixed`}>
             <NavLink exact to="/"> 
               <img alt={`logo`} className='logo' src={`${logo}`}></img> 
             </NavLink>
-        </div>
-        <div className={`nav-bar-search`}>
             <SearchForm />
         </div>
+        <div></div>
         <div className={`nav-bar-links`}>
             {isLoaded && sessionLinks}
         </div>
