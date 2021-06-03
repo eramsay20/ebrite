@@ -88,3 +88,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Heroku Deploy/Update
+
+DEPLOYMENT STEP: https://open.appacademy.io/learn/js-py---dec-2020-cohort-1-online/week-15-dec-2020-cohort-1-online/authenticate-me-part-3--deploy
