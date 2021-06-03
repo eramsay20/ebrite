@@ -40,8 +40,10 @@ function App() {
             </div>
           </Route>
           <Route path='/events/:eventId'>
-            <div className='body'>
+            <div className={`app-grid-container`}>
+              <Navigation isLoaded={isLoaded} />
               <EventPage />
+              <Footer />
             </div>
           </Route>
           <Route path='/profile'>

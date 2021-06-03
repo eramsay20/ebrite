@@ -54,8 +54,8 @@ body {
   margin: 0px;
 }
 
-/* NAV BAR */
 
+/* NAV BAR */
 .nav-bar-fixed {
   display: flex;
   justify-content: center;
@@ -82,18 +82,74 @@ body {
 
 
 
-
-/* EVENT PAGE CONTAINER */
-.event-grid-container {
+/* EVENT PAGE */
+.event-page-container {
   display: grid;
-  grid-template-rows: 3fr 6fr;
-  grid-template-columns: 3fr 2fr;
-  height: 80vh;
-  width: 100vw;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-   'image details',
-   'sum sum';
+  'event-header'
+  'event-description';
+  height: 80vh;
+  width: 100%;
 }
+
+/* EVENT PAGE TOP */
+.event-header-container {
+  grid-area: event-header;
+  display: flex;
+  height: 300px;
+}
+
+.event-image-container {
+  object-fit: cover;
+  width: 100%;
+}
+
+.event-image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.event-header-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--peach);
+  padding: 20px 10px 20px 40px;
+  border-bottom: 5px solid var(--orange);
+}
+
+.event-register-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* EVENT PAGE BOTTOM */
+
+.event-body-container{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  'summary .';
+  height: 100%;
+  width: 100%;
+}
+
+.event-summary{
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
 
 .profile-grid-container {
   display: grid;
@@ -140,49 +196,6 @@ body {
   align-items: center;
 }
 
-/* GRID RELATED CLASSES */
-
-.event-image-container {
-  grid-area: 'image';
-  background-color: var(--orange);
-  object-fit: cover;
-  width: 100%;
-  height: 300px;
-}
-
-.event-image {
-  grid-area: 'image';
-  background-color: var(--orange);
-  object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-}
-
-.event-details-container{
-  grid-area: 'details';
-  background-color: var(--peach);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  border-bottom: 5px solid var(--orange);
-}
-
-.event-summary{
-  grid-area: 'sum';
-  padding: 20px;
-}
-
-/* profile page grid  */
-
-.flex-vertical{
-  display: flex;
-  flex-direction: column;
-}
-
-.scale{
-  transform: scale(.8);
-}
 
 
 /* FORM, INPUT AND LINK STYLINGS */
@@ -438,3 +451,15 @@ button:hover {
   text-align: 'justify';
 }
 
+.min-margin {
+  margin: 0px 0px 10px 0px;
+}
+
+.flex-vertical{
+  display: flex;
+  flex-direction: column;
+}
+
+.scale{
+  transform: scale(.8);
+}

@@ -10,12 +10,12 @@ function EventPage(){
   const event = useSelector(state => state.events[eventId]);
 
   return (
-    <>
-      <div className='event-grid-container'>
+    <div className='body'>
+      <div className='event-page-container'>
         <EventPageHeader event={event} />
         <EventPageBody event={event}/>
       </div>
-    </>
+    </div>
   );
 }
 
