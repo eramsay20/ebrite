@@ -1,5 +1,10 @@
+.main-page-banner{
+    display: flex;
+    justify-content: center;
+}
+
 .main-page-banner > img {
-    width: 97%;
+    width: 95%;
     height: auto;
-    margin-top: 40px;
+    margin-top:20px;
 }

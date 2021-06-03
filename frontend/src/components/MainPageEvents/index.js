@@ -8,8 +8,8 @@ function MainPageEvents({ categories, events, user, favorites }){
 
   return (
     <div className=''>
-      <h2 style={{display: 'flex', fontSize:'20px', justifyContent: 'flex-start', paddingLeft: '20px', fontWeight: '500px', margin: '0px', marginTop:'20px'}}> Popular in <span style={{paddingRight: '10px'}}></span><span style={{color: 'var(--blue)', borderBottom: '2px solid var(--shadow)', paddingRight: '5px', paddingLeft: '5px' }}>{category}</span> </h2>
-      <div style={{justifyContent: 'flex-start', paddingLeft: '20px'}} className={`category-bar flex-container`}>
+      <h2 style={{display: 'flex', fontSize:'20px', justifyContent: 'flex-start', paddingLeft: '40px', fontWeight: '500px', margin: '0px', marginTop:'20px'}}> Popular in <span style={{paddingRight: '10px'}}></span><span style={{color: 'var(--blue)', borderBottom: '2px solid var(--shadow)', paddingRight: '5px', paddingLeft: '5px' }}>{category}</span> </h2>
+      <div style={{justifyContent: 'flex-start', paddingLeft: '40px'}} className={`category-bar flex-container`}>
           { categories && categories.map(category => (
             <div key={category} style={{paddingRight: '30px'}}>
               <h3 className="category" onClick={() => setCategory(category)}>{category}</h3>

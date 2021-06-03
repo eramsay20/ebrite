@@ -38,7 +38,7 @@ body {
   grid-area: nav;
 
   display: grid;
-  grid-template-columns: 600px 1fr 320px;
+  grid-template-columns: 600px 1fr 200px;
   grid-template-rows: 1fr;
   grid-template-areas:
     'fixed links';
@@ -51,7 +51,9 @@ body {
 
 .footer{
   grid-area: foot;
-  margin: 0px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px 20px 0px;
 }
 
 
@@ -144,13 +146,7 @@ body {
 
 
 
-
-
-
-
-
-
-
+/* PROFILE PAGE */
 .profile-grid-container {
   display: grid;
   grid-template: 1fr 1fr / 3fr 7fr;
@@ -188,12 +184,6 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   height: 35vh;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 
@@ -290,18 +280,20 @@ button:hover {
   border-bottom: 1px solid var(--blue);
 }
 
-/* EVENT CARD */
 
+
+/* EVENT CARD */
 .event-card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .event-card {
   display: flex;
   justify-content: center;
   height: 250px;
-  width: 230px;
+  width: 250px;
   margin: 20px;
   padding: 0px;
   background-color: white;
@@ -441,6 +433,12 @@ button:hover {
 }
 
 /* OTHER STYLINGS */
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .title {
   text-decoration: 'underline';
