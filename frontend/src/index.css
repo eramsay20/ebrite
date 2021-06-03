@@ -141,7 +141,7 @@ body {
 }
 
 .event-summary{
-  padding: 10px 20px 10px 20px;
+  padding: 0px 20px 10px 20px;
 }
 
 
@@ -149,41 +149,49 @@ body {
 /* PROFILE PAGE */
 .profile-grid-container {
   display: grid;
-  grid-template: 1fr 1fr / 3fr 7fr;
-  height: 80vh;
-  width: 100vw;
-  grid-template-areas:
-   'profile registered'
-   'settings favorites';
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  'profile-settings profile-events';
+  width: 100%;
 }
 
 .profile-settings-container {
-  background-color: var(--peach);
+  grid-area: profile-settings;
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 80vh;
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-.profile-image {
-  border-radius: 5px;
-  border: 5px solid white;
-  margin: 0px;
 }
 
 .profile-events-container {
+  grid-area: profile-events;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  width: 100%;
+  height: 85%;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.profile-image { 
+  border-radius: 5px;
+  margin: 0px;
+  max-width: 90%;
 }
 
 .user-events-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   overflow-y: scroll;
   height: 35vh;
+  width: 60vw;
 }
 
 
@@ -353,21 +361,20 @@ button:hover {
 .user-event-card-container {
   display: flex;
   flex-wrap: wrap;
-  overflow-x: scroll;
   transform: scale(.9)
 }
 
 .user-event-card {
   display: flex;
-  /* justify-content: center; */
   flex-direction: column;
   position: relative;
   height: auto;
   width: 200px;
   margin: 20px;
   padding: 0px;
-  transition: box-shadow 500ms;
+  transition: box-shadow 300ms;
   background-color: white;
+  box-shadow: 1px 1px 5px 1px var(--shadow);
 }
 
 .user-event-card-details {
@@ -379,6 +386,8 @@ button:hover {
 
 .remove-btn {
   font-size: 14px;
+  display: flex;
+  justify-content: center;
 }
 
 .user-event-card-image-container {
@@ -390,7 +399,7 @@ button:hover {
 }
 
 .user-event-card:hover {
-  box-shadow: 3px 3px 15px 5px var(--shadow);
+  box-shadow: 3px 3px 20px 5px var(--shadow);
 }
 
 /* SEARCH BAR  */

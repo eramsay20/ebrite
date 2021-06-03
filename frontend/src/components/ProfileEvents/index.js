@@ -15,20 +15,17 @@ function ProfileEvents({ registered, favorites }){
       dispatch(unfavoriteEvent(eventId))
   }
 
-  return (
+  return (    
     <>
-        <div>
-          <h2 style={{textDecoration: 'underline', margin: '0px', marginTop: '10px'}}>Registered Events</h2>
+          <h2 style={{ textDecoration: 'underline', margin: '0px', marginTop: '20px', paddingLeft: '60px'}}>Registered Events</h2>
           <div className='user-events-container'>
             <DisplayUserEvents events={registered} remove={unregister} deleteText={`Cancel Registration`}/>
           </div>
-        </div>
-        <div>
-          <h2 style={{textDecoration: 'underline', margin: '0px', marginTop: '10px'}}>Favorite Events</h2>
+          
+          <h2 style={{ textDecoration: 'underline', margin: '0px', marginTop: '30px', paddingLeft: '60px'}}>Favorite Events</h2>
           <div className='user-events-container'>
             <DisplayUserEvents events={favorites} remove={unfavorite} deleteText={`Remove`}/>
           </div>
-        </div>
     </>
   );
 }

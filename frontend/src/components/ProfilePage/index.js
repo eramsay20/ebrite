@@ -21,7 +21,7 @@ function ProfilePage(){
 
 
   return (
-    <>
+    <div className="body">
     { sessionUser && (
       <div className='profile-grid-container'>
         <div className='profile-settings-container'>
@@ -36,7 +36,7 @@ function ProfilePage(){
     { !sessionUser &&
     <Redirect to="/" />
     }
-  </>
+  </div>
   );
 }
 

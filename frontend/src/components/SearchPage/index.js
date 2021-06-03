@@ -22,15 +22,15 @@ function SearchPage(){
   if(searchResults.length > 0){
     display = (<DisplayEvents favorites={favorites} user={sessionUser} events={searchResults}/>)
   } else {
-    display = (<h1> No events found. </h1>)
+    display = (<h1 style={{ display: 'flex', marginLeft: '40px', marginTop: '40px', color: 'var(--orange)' }}> No events found. </h1>)
   }
 
   // pass categories and events to children components
   return (
-    <>
-      <h3 style={{display: 'flex', justifyContent: 'left', marginLeft: '30px', color: 'var(--orange)'}}>{`Search query returned ${searchResults.length} results below:`}</h3>
+    <div className='body'>
+      <h3 style={{ display: 'flex', marginLeft: '40px', marginTop: '40px'}}>{`Search query returned ${searchResults.length} results below:`}</h3>
       {display}
-    </>
+    </div>
   );
 }
 

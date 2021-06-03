@@ -35,8 +35,10 @@ function App() {
             </div>
           </Route>
            <Route exact path='/events/search'>
-            <div className='body'>
+            <div className={`app-grid-container`}>
+              <Navigation isLoaded={isLoaded} />
               <SearchPage />
+              <Footer />
             </div>
           </Route>
           <Route path='/events/:eventId'>
@@ -47,8 +49,10 @@ function App() {
             </div>
           </Route>
           <Route path='/profile'>
-            <div className='body'>
+            <div className={`app-grid-container`}>
+              <Navigation isLoaded={isLoaded} />
               <ProfilePage />
+              <Footer />
             </div>
           </Route>
         </Switch>
