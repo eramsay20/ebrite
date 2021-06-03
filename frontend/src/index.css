@@ -304,16 +304,16 @@ button:hover {
 }
 
 .fav-icon {
-  transform: scale(.35);
+  transform: scale(.4);
   position: absolute;
-  right: -25px;
-  bottom: 97px;
+  right: -20px;
+  bottom: 90px;
   cursor: pointer;
   transition: transform 300ms;
 }
 
 .fav-icon:hover {
-  transform: scale(.40);
+  transform: scale(.5);
 }
 
 .event-card-image-container {
