@@ -93,7 +93,7 @@ body {
   'event-header'
   'event-description';
   height: 80vh;
-  width: 100%;
+  width: 95%;
 }
 
 /* EVENT PAGE TOP */
@@ -132,7 +132,7 @@ body {
 
 .event-body-container{
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 65% 35%;
   grid-template-rows: 1fr;
   grid-template-areas:
   'summary .';
@@ -141,7 +141,7 @@ body {
 }
 
 .event-summary{
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 

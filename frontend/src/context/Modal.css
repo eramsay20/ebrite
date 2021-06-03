@@ -16,12 +16,13 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, .8);
+  filter: blur(200px);
 }
 
 #modal-content {
   position: absolute;
   background-color:white;
   border-radius: 5px;
-  padding: 25px;
+  padding: 50px;
 }
