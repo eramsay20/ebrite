@@ -97,6 +97,9 @@ heroku login
 
 // reset DB on heroku via ebrite > Heroku Postgres > Settings > Reset Database
 
+
 heroku run npm run sequelize db:migrate
 
 heroku run npm run sequelize db:seed:all
+
+git push heroku master
