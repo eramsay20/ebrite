@@ -162,6 +162,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80vh;
+  margin-top: 40px;
 }
 
 .profile-events-container {
@@ -189,9 +190,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
   overflow-y: scroll;
-  height: 35vh;
-  width: 60vw;
+  max-height: 300px;
+  width: 50vw;
 }
 
 
@@ -353,6 +355,7 @@ button:hover {
   color: var(--text);
   font-weight: bold;
   text-transform: capitalize;
+  height: 20px;
 }
 
 
@@ -360,17 +363,18 @@ button:hover {
 
 .user-event-card-container {
   display: flex;
-  flex-wrap: wrap;
-  transform: scale(.9)
+  margin: 10px;
+  min-height: 270px;
+  max-height: 300px;
 }
 
 .user-event-card {
   display: flex;
   flex-direction: column;
   position: relative;
-  height: auto;
+  height: 205px;
   width: 200px;
-  margin: 20px;
+  margin: 5px;
   padding: 0px;
   transition: box-shadow 300ms;
   background-color: white;
@@ -381,7 +385,7 @@ button:hover {
   text-align: left;
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .remove-btn {

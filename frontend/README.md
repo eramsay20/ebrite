@@ -92,3 +92,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Heroku Deploy/Update
 
 DEPLOYMENT STEP: https://open.appacademy.io/learn/js-py---dec-2020-cohort-1-online/week-15-dec-2020-cohort-1-online/authenticate-me-part-3--deploy
+
+heroku login
+
+// reset DB on heroku via ebrite > Heroku Postgres > Settings > Reset Database
+
+heroku run npm run sequelize db:migrate
+
+heroku run npm run sequelize db:seed:all
