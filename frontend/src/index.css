@@ -25,7 +25,7 @@ body {
 .app-grid-container {
   display: grid;
   grid-template-columns: 1fr 1200px 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 70px 3fr 70px;
   grid-template-areas:
     '. nav .'
     '. body .'
