@@ -10,7 +10,7 @@ function UserEventCard({ event, time, remove, deleteText }){
             <img alt={'event'} className={`event-card-image`} src={event.image}></img>
           </div>
           <div className={`user-event-card-details`}>
-            <p className={`event-card-title`}>{event.title}</p>
+            <p className={`user-event-card-title`}>{event.title}</p>
             <p>{time}</p>
           </div>
         </NavLink>

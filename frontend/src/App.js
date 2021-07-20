@@ -9,7 +9,7 @@ import SearchPage from "./components/SearchPage";
 import ProfilePage from "./components/ProfilePage";
 import Footer from "./components/Footer";
 
-import './index.css';
+import './css/index.css';
 
 import * as sessionActions from './store/session';
 
